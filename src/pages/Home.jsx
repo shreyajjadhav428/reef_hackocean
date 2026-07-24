@@ -4,6 +4,8 @@ import CoralZone from "../components/home/CoralZone";
 import ThreatZone from "../components/home/ThreatZone";
 import RestorationZone from "../components/home/RestorationZone";
 import ExploreMore from "../components/home/ExploreMore";
+import LunaSticky from "../components/home/LunaSticky";
+import ChapterScroller from "../components/home/ChapterScroller";
 
 const Home = () => {
   return (
@@ -25,6 +27,12 @@ const Home = () => {
 
       {/* 7. Want to Learn More? (Explore Navigation Cards) */}
       <ExploreMore />
+
+      {/* Sticky Right-side Chapter Scroller Navigator */}
+      <ChapterScroller />
+
+      {/* Sticky Luna Sea Turtle companion from Dive section onwards */}
+      <LunaSticky />
     </div>
   );
 };
