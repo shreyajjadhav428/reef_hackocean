@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Component Imports
 import VolunteerTimeline from '../components/volunteer/VolunteerTimeline';
@@ -8,6 +8,16 @@ import VolunteerForm from '../components/volunteer/VolunteerForm';
 import Cta from '../components/volunteer/Cta';
 
 const Volunteer = () => {
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleRegisterEvent = (eventTitle) => {
+    setSelectedEvent(eventTitle);
+    const el = document.getElementById("volunteer-form");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#040810] text-white pt-32 pb-20 font-serif selection:bg-cyan-500 selection:text-slate-950 relative overflow-hidden select-none">
       
@@ -20,9 +30,9 @@ const Volunteer = () => {
       {/* Main Content Area - Components spaced out to allow scroll immersion */}
       <main className="relative z-10 space-y-32 md:space-y-40 flex flex-col items-center w-full">
         <VolunteerTimeline />
-        <Events />
+        <Events onRegister={handleRegisterEvent} />
         <Benefits />
-        <VolunteerForm />
+        <VolunteerForm selectedEvent={selectedEvent} onClearEvent={() => setSelectedEvent(null)} />
         <Cta />
       </main>
 

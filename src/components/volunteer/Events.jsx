@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiCalendar, FiMapPin, FiClock, FiArrowRight } from 'react-icons/fi';
 
-const Events = () => {
+const Events = ({ onRegister }) => {
   const eventsData = [
     {
       title: "Coastal Cleanup Drive",
@@ -29,6 +29,17 @@ const Events = () => {
       image: "bg-[url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&auto=format&fit=crop')]"
     }
   ];
+
+  const handleRegisterClick = (eventTitle) => {
+    if (onRegister) {
+      onRegister(eventTitle);
+    } else {
+      const el = document.getElementById("volunteer-form");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   const headerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -115,7 +126,10 @@ const Events = () => {
               </div>
 
               {/* Action Button */}
-              <button className="w-full bg-[#9ce3ec] hover:bg-[#82d6df] text-slate-950 font-semibold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(156,227,236,0.3)] cursor-pointer">
+              <button 
+                onClick={() => handleRegisterClick(event.title)}
+                className="w-full bg-[#9ce3ec] hover:bg-[#82d6df] text-slate-950 font-semibold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(156,227,236,0.3)] cursor-pointer"
+              >
                 Register Now
               </button>
             </div>

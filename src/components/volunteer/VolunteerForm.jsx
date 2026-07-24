@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -9,10 +9,11 @@ import {
   FiMessageSquare, 
   FiSend, 
   FiCheckCircle,
-  FiArrowRight 
+  FiArrowRight,
+  FiX
 } from 'react-icons/fi';
 
-const VolunteerForm = () => {
+const VolunteerForm = ({ selectedEvent, onClearEvent }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +23,15 @@ const VolunteerForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (selectedEvent) {
+      setFormData(prev => ({
+        ...prev,
+        message: `I would like to register for "${selectedEvent}".`
+      }));
+    }
+  }, [selectedEvent]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,7 +59,7 @@ const VolunteerForm = () => {
   };
 
   return (
-    <section className="w-full max-w-4xl mx-auto px-6 md:px-12 py-16 relative z-10">
+    <section id="volunteer-form" className="w-full max-w-4xl mx-auto px-6 md:px-12 py-16 relative z-10">
       
       {/* Decorative Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-500 rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none"></div>
@@ -78,6 +88,24 @@ const VolunteerForm = () => {
               onSubmit={handleSubmit} 
               className="space-y-6 w-full"
             >
+              {selectedEvent && (
+                <div className="p-4 rounded-2xl bg-[#071324] border border-cyan-500/50 flex items-center justify-between text-sm shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                  <div className="flex items-center gap-2.5 text-cyan-300 font-semibold">
+                    <FiCheckCircle size={18} className="text-cyan-400 shrink-0" />
+                    <span>Registering for Event: <strong className="text-white font-bold">{selectedEvent}</strong></span>
+                  </div>
+                  {onClearEvent && (
+                    <button 
+                      type="button"
+                      onClick={onClearEvent}
+                      className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+                      aria-label="Clear event selection"
+                    >
+                      <FiX size={16} />
+                    </button>
+                  )}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="relative">
                   <input 

@@ -124,10 +124,10 @@ const Navbar = () => {
         {/* Right: Donate Pill Button */}
         <div className="hidden md:flex items-center gap-3">
           <Link
-            to="/volunteer"
-            className="px-5 py-1.5 rounded-full border border-cyan-500/60 hover:border-cyan-300 text-white text-sm font-medium transition duration-200 shadow-[0_0_12px_rgba(34,211,238,0.2)] hover:shadow-[0_0_18px_rgba(34,211,238,0.4)] hover:bg-cyan-950/40"
+            to="/donate"
+            className="px-5 py-1.5 rounded-full border border-cyan-500/60 hover:border-cyan-300 text-white text-sm font-medium transition duration-200 shadow-[0_0_12px_rgba(34,211,238,0.2)] hover:shadow-[0_0_18px_rgba(34,211,238,0.4)] hover:bg-cyan-950/40 cursor-pointer"
           >
-            Donate
+            Support the Reef
           </Link>
         </div>
 
@@ -164,9 +164,9 @@ const Navbar = () => {
             ))}
             <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
               <Link
-                to="/volunteer"
+                to="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full py-2 text-center rounded-full border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 text-sm font-semibold transition"
+                className="w-full py-2 text-center rounded-full border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-slate-950 text-sm font-semibold transition cursor-pointer"
               >
                 Donate
               </Link>
