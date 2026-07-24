@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
 @layer base {
   body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a, div {
     font-family: 'Playfair Display', Georgia, serif;

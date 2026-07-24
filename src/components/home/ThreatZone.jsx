@@ -6,7 +6,7 @@ const ThreatZone = () => {
   return (
     <section 
       id="chapter-threat" 
-      className="relative w-full min-h-[550px] sm:min-h-[650px] bg-[#040810] text-white overflow-hidden select-none flex items-center"
+      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none flex items-center snap-start snap-always"
     >
       {/* Smooth Section Junction Gradient Overlays */}
       <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#040810] to-transparent pointer-events-none z-10" />

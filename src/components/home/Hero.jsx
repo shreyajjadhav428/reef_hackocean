@@ -34,7 +34,7 @@ const Hero = () => {
     <section
       id="scene-surface"
       onWheel={handleWheel}
-      className="relative w-full bg-[#040810] text-white overflow-hidden select-none"
+      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none snap-start snap-always"
     >
       {/* 100% Width Outer Frame */}
       <div className="w-full bg-[#060d19] relative min-h-screen flex flex-col justify-between">

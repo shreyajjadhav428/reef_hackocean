@@ -4,7 +4,7 @@ const Dive = () => {
   return (
     <section
       id="chapter-dive"
-      className="relative w-full bg-[#040810] text-white overflow-hidden select-none"
+      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none flex items-center justify-center snap-start snap-always"
     >
       {/* Main Container */}
       <motion.div
@@ -12,7 +12,7 @@ const Dive = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 1 }}
-        className="w-full bg-[#040810] relative min-h-[380px] sm:min-h-[460px] flex flex-col sm:flex-row items-center justify-between py-10 sm:py-16 px-6 sm:px-12 lg:px-16 overflow-hidden gap-8"
+        className="w-full bg-[#040810] relative min-h-screen flex flex-col sm:flex-row items-center justify-between py-10 sm:py-16 px-6 sm:px-12 lg:px-16 overflow-hidden gap-8"
       >
         {/* Background Video Element */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-80">

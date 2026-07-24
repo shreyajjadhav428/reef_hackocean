@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import coralSvg from "../../assets/svg/coral svg.svg";
 
 const CoralZone = () => {
   const [ripples, setRipples] = useState([]);
@@ -21,7 +20,7 @@ const CoralZone = () => {
     <section 
       id="chapter-coral" 
       onClick={handleSectionClick}
-      className="relative w-full min-h-[550px] sm:min-h-[650px] bg-[#040810] text-white overflow-hidden select-none cursor-crosshair flex items-center justify-end"
+      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none cursor-crosshair flex items-center justify-end snap-start snap-always"
     >
       {/* WATER RIPPLE EFFECT LAYER */}
       <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
@@ -72,37 +71,21 @@ const CoralZone = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none z-0" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
-      {/* Right Side Container: Coral SVG on Left + Text Block on Right */}
+      {/* Right Side Section Headline & Text Description */}
       <motion.div
         initial={{ opacity: 0, x: 35 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-20 max-w-2xl lg:max-w-4xl mr-8 sm:mr-20 lg:mr-28 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 py-8 sm:py-12 px-6 sm:px-0"
+        className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-12 sm:mr-24 lg:mr-36 text-left py-8 sm:py-12 px-6 sm:px-0"
       >
-        {/* CORAL SVG (Positioned on the Left Side of the Text) */}
-        <motion.div
-          animate={{ y: [0, -10, 0], rotate: [-1.5, 1.5, -1.5] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="shrink-0 pointer-events-none"
-        >
-          <img
-            src={coralSvg}
-            alt="Vibrant Coral Reef Structure"
-            className="w-40 sm:w-56 lg:w-72 object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.85)] opacity-95"
-          />
-        </motion.div>
-
-        {/* Text Description Block */}
-        <div className="text-left">
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-md">
-            Living Wonders. <br />
-            <span className="text-teal-300 font-normal">A sanctuary built over centuries.</span>
-          </h2>
-          <p className="mt-4 text-slate-200 text-sm sm:text-base leading-relaxed font-light">
-            Coral reefs host 25% of all ocean species despite covering less than 1% of the seabed. Every vibrant coral cluster provides shelter, nourishment, and life to thousands of marine creatures.
-          </p>
-        </div>
+        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-md">
+          Living Wonders. <br />
+          <span className="text-teal-300 font-normal">A sanctuary built over centuries.</span>
+        </h2>
+        <p className="mt-4 text-slate-200 text-sm sm:text-base leading-relaxed font-light">
+          Coral reefs host 25% of all ocean species despite covering less than 1% of the seabed. Every vibrant coral cluster provides shelter, nourishment, and life to thousands of marine creatures.
+        </p>
       </motion.div>
     </section>
   );
