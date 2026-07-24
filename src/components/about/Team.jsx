@@ -6,25 +6,25 @@ const Team = () => {
     {
       name: "Dr. Elena Rostova",
       role: "Lead Marine Biologist",
-      image: "ER",
+      imageSrc: "/images/team_elena.png",
       bio: "Spearheads our global coral fragmenting and restoration nurseries.",
     },
     {
       name: "Marcus Chen",
       role: "Oceanographic Director",
-      image: "MC",
+      imageSrc: "/images/team_marcus.png",
       bio: "Maps temperature anomalies to locate heat-resilient reef zones.",
     },
     {
       name: "Sarah Jenkins",
       role: "Head of Community",
-      image: "SJ",
+      imageSrc: "/images/team_sarah.png",
       bio: "Builds alliances with local coastal communities and global NGOs.",
     },
     {
       name: "David Alaba",
       role: "Conservation Policy Lead",
-      image: "DA",
+      imageSrc: "/images/team_david.png",
       bio: "Advocates for marine protected areas at the international level.",
     }
   ];
@@ -67,14 +67,16 @@ const Team = () => {
             transition={{ delay: index * 0.1 }}
             className="group relative bg-[#050c18] border border-slate-800/80 rounded-3xl overflow-hidden shadow-xl hover:border-cyan-500/50 transition-all duration-300"
           >
-            {/* Image Placeholder / Avatar */}
-            <div className="w-full h-64 bg-[#060e1b] flex items-center justify-center relative overflow-hidden">
-              <span className="text-5xl font-light text-slate-600 group-hover:text-slate-400 transition-colors duration-300">
-                {member.image}
-              </span>
+            {/* Team Member Portrait Image */}
+            <div className="w-full h-72 bg-[#060e1b] relative overflow-hidden">
+              <img 
+                src={member.imageSrc} 
+                alt={member.name}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
 
               {/* Hover Social Overlay */}
-              <div className="absolute inset-0 bg-[#050c18]/90 backdrop-blur-sm flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-[#050c18]/85 backdrop-blur-sm flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <a href="#" className="w-10 h-10 rounded-full bg-[#9ce3ec] text-slate-950 flex items-center justify-center hover:bg-cyan-300 transition-colors">
                   <FiLinkedin size={18} />
                 </a>

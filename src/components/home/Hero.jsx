@@ -41,15 +41,7 @@ const Hero = () => {
 
 
         
-        {/* Navbar Entrance */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="w-full z-50"
-        >
-          <Navbar />
-        </motion.div>
+
 
         {/* Hero Content & Background Container */}
         <div className="relative flex-1 flex flex-col justify-between p-6 sm:p-12 lg:p-16 overflow-hidden">

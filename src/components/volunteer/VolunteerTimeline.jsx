@@ -51,12 +51,12 @@ const VolunteerTimeline = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="text-center mb-24"
       >
-        <h3 className="text-cyan-400 uppercase tracking-[0.3em] text-xs font-semibold mb-6">Take Action</h3>
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6 tracking-tight">
+        <h3 className="text-cyan-300 uppercase tracking-[0.3em] text-xs sm:text-sm font-bold mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Take Action</h3>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6 tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
           Your Journey to <br />
-          <span className="font-light text-slate-300">Ocean Guardian.</span>
+          <span className="font-light text-slate-200">Ocean Guardian.</span>
         </h1>
-        <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+        <p className="text-slate-100 text-lg max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
           Every massive wave starts with a single ripple. Here is how you can transform your passion into tangible impact for our coral reefs.
         </p>
       </motion.div>

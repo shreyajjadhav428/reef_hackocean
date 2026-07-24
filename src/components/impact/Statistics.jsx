@@ -100,11 +100,11 @@ const Statistics = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="text-center mb-16"
       >
-        <h3 className="text-cyan-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">The Numbers</h3>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-          Measurable <span className="font-light text-slate-300">Impact.</span>
+        <h3 className="text-cyan-300 uppercase tracking-[0.3em] text-xs sm:text-sm font-bold mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">The Numbers</h3>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          Measurable <span className="font-light text-slate-200">Impact.</span>
         </h2>
-        <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+        <p className="text-slate-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
           We believe in full transparency. Every dive, every fragment, and every volunteer hour contributes to a healthier ocean. Here is what we have achieved together.
         </p>
       </motion.div>

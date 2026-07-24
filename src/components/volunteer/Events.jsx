@@ -10,7 +10,7 @@ const Events = ({ onRegister }) => {
       time: "07:00 AM - 11:00 AM",
       location: "Marine Drive, Mumbai",
       type: "Land-Based",
-      image: "bg-[url('https://images.unsplash.com/photo-1618472609777-b038f1f04b8d?q=80&w=600&auto=format&fit=crop')]"
+      imageSrc: "/images/collecting the garbage.jpg"
     },
     {
       title: "Coral Fragmentation Workshop",
@@ -18,7 +18,7 @@ const Events = ({ onRegister }) => {
       time: "09:00 AM - 02:00 PM",
       location: "REEF Headquarters",
       type: "Training",
-      image: "bg-[url('https://images.unsplash.com/photo-1582967788606-a171c1080cb0?q=80&w=600&auto=format&fit=crop')]"
+      imageSrc: "/images/corals.jpg"
     },
     {
       title: "Dive Against Debris",
@@ -26,7 +26,7 @@ const Events = ({ onRegister }) => {
       time: "06:30 AM - 01:00 PM",
       location: "Andaman Islands",
       type: "Diving",
-      image: "bg-[url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&auto=format&fit=crop')]"
+      imageSrc: "/images/diver_dark_water.png"
     }
   ];
 
@@ -94,10 +94,15 @@ const Events = ({ onRegister }) => {
             variants={cardVariants}
             className="group bg-[#050c18] border border-slate-800/80 rounded-3xl overflow-hidden shadow-xl hover:border-cyan-500/50 transition-all duration-300 flex flex-col h-full"
           >
-            {/* Event Image / Visual Placeholder */}
-            <div className={`w-full h-48 ${event.image} bg-cover bg-center relative overflow-hidden`}>
-              <div className="absolute inset-0 bg-[#040810]/60 group-hover:bg-[#040810]/40 transition-colors duration-300"></div>
-              <div className="absolute top-4 left-4 bg-[#050c18]/90 border border-slate-800 px-3 py-1 rounded-full">
+            {/* Event Image / Visual */}
+            <div className="w-full h-48 relative overflow-hidden bg-[#060e1b]">
+              <img
+                src={event.imageSrc}
+                alt={event.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050c18] via-transparent to-transparent"></div>
+              <div className="absolute top-4 left-4 bg-[#050c18]/90 border border-slate-800 px-3 py-1 rounded-full backdrop-blur-md">
                 <span className="text-cyan-400 text-xs font-semibold tracking-wider uppercase">{event.type}</span>
               </div>
             </div>
