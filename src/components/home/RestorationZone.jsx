@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Sparkles, CheckCircle2 } from "lucide-react";
 
 const CoralFragmentIcon = ({ color = "text-cyan-400" }) => (
@@ -26,15 +27,21 @@ const RestorationZone = () => {
   };
 
   return (
-    <section id="chapter-hope" className="relative w-full bg-[#040810] text-white">
-      <div className="w-full bg-[#050d1a] border-b border-slate-800/80 shadow-2xl overflow-hidden relative p-8 sm:p-16 lg:p-24">
+    <section id="chapter-hope" className="relative w-full bg-[#040810] text-white overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full bg-[#050d1a] shadow-2xl overflow-hidden relative p-8 sm:p-16 lg:p-24"
 
-        
+      >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/corals.jpg"
             alt="Reef Restoration"
+            loading="lazy"
             className="w-full h-full object-cover object-center opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050d1a] via-[#050d1a]/80 to-[#050d1a]" />
@@ -43,7 +50,13 @@ const RestorationZone = () => {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column */}
-          <div className="lg:col-span-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-6"
+          >
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
               You Can Help <br />
               <span className="text-[#9ce3ec]">Restore Our Oceans</span>
@@ -78,10 +91,16 @@ const RestorationZone = () => {
                 })}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Dotted Dropzone */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="lg:col-span-6 flex flex-col items-center justify-center"
+          >
             <div
               onClick={placeFragment}
               className={`relative group w-64 h-64 sm:w-72 sm:h-72 rounded-full border-2 border-dashed transition-all duration-500 flex flex-col items-center justify-center p-6 text-center cursor-pointer ${
@@ -141,13 +160,13 @@ const RestorationZone = () => {
                 </>
               )}
             </div>
-          </div>
+          </motion.div>
 
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
 
 export default RestorationZone;
+

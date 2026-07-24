@@ -1,17 +1,24 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { AlertTriangle, Compass, ShieldAlert } from "lucide-react";
 
 const ThreatZone = () => {
   return (
-    <section id="chapter-threat" className="relative w-full bg-[#040810] text-white">
-      <div className="w-full bg-[#060c18] border-b border-slate-800/80 shadow-2xl overflow-hidden relative p-8 sm:p-16 lg:p-24">
+    <section id="chapter-threat" className="relative w-full bg-[#040810] text-white overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full bg-[#060c18] shadow-2xl overflow-hidden relative p-8 sm:p-16 lg:p-24"
 
-        
+      >
         {/* Background Image: Submerged Plastic Bottle */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/Plastic bottle.jpg"
             alt="Submerged Plastic Bottle Danger"
+            loading="lazy"
             className="w-full h-full object-cover object-center opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#060c18] via-[#060c18]/85 to-[#060c18]" />
@@ -21,7 +28,13 @@ const ThreatZone = () => {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column */}
-          <div className="lg:col-span-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-6"
+          >
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
               Our Oceans <br />
               <span className="text-slate-200">Are in Danger</span>
@@ -38,10 +51,16 @@ const ThreatZone = () => {
                 See the Facts
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: 11 Million Tons Stats Box */}
-          <div className="lg:col-span-6">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="lg:col-span-6"
+          >
             <div className="bg-[#050e1c]/90 backdrop-blur-xl border border-slate-800/90 rounded-2xl p-6 sm:p-10 shadow-2xl">
               <span className="block text-2xl sm:text-4xl font-extrabold text-white tracking-wide">
                 11 MILLION TONS
@@ -89,13 +108,13 @@ const ThreatZone = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
 
 export default ThreatZone;
+
