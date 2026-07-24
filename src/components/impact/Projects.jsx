@@ -209,10 +209,7 @@ The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a rem
           <h3 className="text-cyan-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">Our Work</h3>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Global Initiatives</h2>
         </div>
-        <button className="hidden md:flex items-center gap-2 text-cyan-400 hover:text-cyan-200 transition-colors text-sm font-semibold tracking-wide group cursor-pointer">
-          View All Projects
-          <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-        </button>
+        
       </motion.div>
 
       {/* Projects Grid */}

@@ -16,7 +16,12 @@ import {
   FiTwitter,
   FiLinkedin,
   FiYoutube,
-  FiArrowRight
+  FiArrowRight,
+  FiNavigation,
+  FiExternalLink,
+  FiCompass,
+  FiCheck,
+  FiCheckCircle
 } from 'react-icons/fi';
 
 const Contact = () => {
@@ -28,6 +33,30 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const [selectedLandmark, setSelectedLandmark] = useState({
+    id: 'mumbai',
+    label: "Mumbai Coastal Bay (India)",
+    region: "Arabian Sea • India",
+    coords: "18.9440° N, 72.8231° E",
+    query: "Marine+Drive+Mumbai+India"
+  });
+
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+  const [isNewsletterSubscribed, setIsNewsletterSubscribed] = useState(false);
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setIsNewsletterSubmitting(true);
+    setTimeout(() => {
+      setIsNewsletterSubmitting(false);
+      setIsNewsletterSubscribed(true);
+      setNewsletterEmail('');
+      setTimeout(() => setIsNewsletterSubscribed(false), 5000);
+    }, 800);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -262,27 +291,115 @@ const Contact = () => {
         </div>
 
         {/* Map Section */}
-        <motion.div variants={itemVariants} className="bg-[#050c18] border border-slate-800/80 rounded-3xl p-6 lg:p-8 shadow-2xl mb-8 flex flex-col md:flex-row items-center gap-8">
-          <div className="md:w-1/3">
-            <div className="flex items-center space-x-3 text-white mb-2">
-              <FiMapPin className="text-cyan-400" size={24} />
-              <h2 className="text-xl font-bold">Find Us Here</h2>
+        <motion.div variants={itemVariants} className="bg-[#050c18] border border-slate-800/80 rounded-3xl p-6 lg:p-8 shadow-2xl mb-8 flex flex-col gap-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+            <div>
+              <div className="flex items-center space-x-3 text-white mb-1">
+                <div className="p-2 bg-cyan-950/60 border border-cyan-500/40 rounded-xl text-cyan-400">
+                  <FiMapPin size={22} className="drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]" />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Global Reef Conservation Stations</h2>
+              </div>
+              <p className="text-slate-400 text-sm pl-11">
+                Explore our active marine field stations located across thriving coral reef systems and coastal bays worldwide.
+              </p>
             </div>
-            <p className="text-slate-400 text-sm pl-9">Click on the marker to get directions.</p>
-          </div>
-          <div className="md:w-2/3 w-full h-48 rounded-2xl overflow-hidden relative border border-slate-800 bg-[#060e1b]">
-            <div className="absolute inset-0 bg-[url('/map-placeholder.jpg')] bg-cover bg-center opacity-40 mix-blend-luminosity"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div 
-                animate={{ y: [0, -10, 0] }} 
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="text-cyan-400"
+
+            <div className="flex items-center gap-3">
+              <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedLandmark.query)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-[#071324] hover:bg-cyan-950/60 text-cyan-400 border border-cyan-500/30 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-300 shadow-md cursor-pointer hover:border-cyan-400"
               >
-                <FiMapPin size={40} className="drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
-              </motion.div>
+                <FiNavigation size={14} />
+                <span>Open Location in Google Maps</span>
+                <FiExternalLink size={12} />
+              </a>
             </div>
-            <span className="absolute top-4 left-1/4 text-xs text-slate-400/80">Marine Drive</span>
-            <span className="absolute bottom-4 right-1/4 text-xs text-slate-400/80">Malabar Hill</span>
+          </div>
+
+          {/* Interactive Global Reef Stations */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold text-slate-400 mr-2 flex items-center gap-1.5">
+              <FiCompass className="text-cyan-400" size={14} /> Active Reef Stations:
+            </span>
+            {[
+              { 
+                id: 'mumbai', 
+                label: "Mumbai Coastal Bay (India)", 
+                region: "Arabian Sea • India", 
+                coords: "18.9440° N, 72.8231° E", 
+                query: "Marine+Drive+Mumbai+India" 
+              },
+              { 
+                id: 'barrier_reef', 
+                label: "Great Barrier Reef (Australia)", 
+                region: "Coral Sea • Australia", 
+                coords: "16.9186° S, 145.7781° E", 
+                query: "Cairns+Great+Barrier+Reef+Australia" 
+              },
+              { 
+                id: 'raja_ampat', 
+                label: "Raja Ampat Coral Triangle (Indonesia)", 
+                region: "Indo-Pacific • Indonesia", 
+                coords: "0.2291° S, 130.5256° E", 
+                query: "Raja+Ampat+West+Papua+Indonesia" 
+              },
+              { 
+                id: 'belize', 
+                label: "Mesoamerican Barrier Reef (Belize)", 
+                region: "Caribbean Sea • Belize", 
+                coords: "17.3333° N, 87.8500° W", 
+                query: "Belize+Barrier+Reef+Belize" 
+              }
+            ].map((spot) => (
+              <button
+                key={spot.id}
+                onClick={() => setSelectedLandmark(spot)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer border ${
+                  selectedLandmark.id === spot.id
+                    ? 'bg-[#9ce3ec] text-slate-950 border-[#9ce3ec] shadow-[0_0_12px_rgba(34,211,238,0.3)] font-bold'
+                    : 'bg-[#071324] text-slate-300 border-slate-800 hover:border-cyan-500/50 hover:text-white'
+                }`}
+              >
+                {spot.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Map View Container */}
+          <div className="w-full h-80 md:h-96 rounded-2xl overflow-hidden relative border border-slate-800/80 bg-[#060e1b] shadow-inner group">
+            
+            {/* Real World Embedded Google Map with Dark Theme Filter */}
+            <iframe
+              title="Global Reef Map"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%)' }}
+              loading="lazy"
+              allowFullScreen
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(selectedLandmark.query)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+              className="w-full h-full opacity-85 group-hover:opacity-100 transition-opacity duration-500"
+            />
+
+            {/* Custom Coastal Marker Overlay Badge */}
+            <div className="absolute bottom-4 left-4 z-10 bg-[#040810]/90 backdrop-blur-md border border-cyan-500/40 px-4 py-2.5 rounded-xl flex items-center gap-3 shadow-2xl">
+              <div className="relative flex items-center justify-center">
+                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-ping absolute"></div>
+                <div className="w-3 h-3 bg-cyan-400 rounded-full relative z-10 shadow-[0_0_10px_rgba(34,211,238,0.9)]"></div>
+              </div>
+              <div>
+                <div className="text-white text-xs font-bold">{selectedLandmark.label}</div>
+                <div className="text-cyan-300 text-[10px] font-mono">{selectedLandmark.coords} • {selectedLandmark.region}</div>
+              </div>
+            </div>
+
+            {/* Top Right Live Location Tag */}
+            <div className="absolute top-4 right-4 z-10 bg-[#050c18]/90 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-lg text-slate-300 text-[11px] font-semibold flex items-center gap-1.5 shadow-lg">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Thriving Coral Reef Sanctuary
+            </div>
           </div>
         </motion.div>
 
@@ -299,16 +416,44 @@ const Contact = () => {
               <p className="text-slate-400 text-sm">Subscribe to our newsletter and get the latest updates on our work, impact, and ways to help our oceans.</p>
             </div>
           </div>
-          <div className="lg:w-1/2 w-full flex">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="w-full bg-[#060e1b]/80 border border-slate-800 border-r-0 rounded-l-xl py-3.5 px-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
-            />
-            <button className="bg-[#9ce3ec] hover:bg-[#82d6df] text-slate-950 font-semibold px-6 rounded-r-xl flex items-center space-x-2 transition-colors whitespace-nowrap cursor-pointer">
-              <span>Subscribe</span>
-              <FiArrowRight />
-            </button>
+          <div className="lg:w-1/2 w-full">
+            {isNewsletterSubscribed ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-emerald-950/40 border border-emerald-500/50 rounded-xl py-3.5 px-6 flex items-center justify-center space-x-3 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+              >
+                <div className="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-300">
+                  <FiCheck size={18} className="stroke-[3]" />
+                </div>
+                <span className="font-semibold text-sm">Subscribed! You are now connected to REEF updates.</span>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="flex">
+                <input 
+                  type="email" 
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Enter your email address" 
+                  className="w-full bg-[#060e1b]/80 border border-slate-800 border-r-0 rounded-l-xl py-3.5 px-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                />
+                <button 
+                  type="submit"
+                  disabled={isNewsletterSubmitting}
+                  className="bg-[#9ce3ec] hover:bg-[#82d6df] text-slate-950 font-semibold px-6 rounded-r-xl flex items-center space-x-2 transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70"
+                >
+                  {isNewsletterSubmitting ? (
+                    <span className="animate-pulse text-sm">Subscribing...</span>
+                  ) : (
+                    <>
+                      <span>Subscribe</span>
+                      <FiArrowRight />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
         </motion.div>
 
