@@ -6,11 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 
 // Pages
-import Home from "../pages/Home";
-import Learn from "../pages/Learn";
-import Volunteer from "../pages/Volunteer";
-import Impact from "../pages/Impact";
-import Gallery from "../pages/Gallery";
+// import Home from "../pages/Home";
+// import Learn from "../pages/Learn";
+// import Volunteer from "../pages/Volunteer";
+// import Impact from "../pages/Impact";
+// import Gallery from "../pages/Gallery";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 
@@ -19,12 +19,12 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/impact" element={<Impact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/gallery" element={<Gallery />} /> */}
+          <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<Contact />} />
         </Route>
 
