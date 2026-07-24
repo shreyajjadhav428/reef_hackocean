@@ -85,12 +85,13 @@ const Navbar = () => {
   return (
     <header className="w-full z-50 pt-2 pb-2">
       <div
-        className={`max-w-7xl mx-auto px-6 sm:px-10 py-4 flex items-center justify-between transition-all duration-300 ${
+        className={`w-full px-6 sm:px-12 py-4 flex items-center justify-between transition-all duration-300 ${
           scrolled
             ? "bg-[#040912]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-2xl"
             : "bg-transparent"
         }`}
       >
+
         {/* Left: Logo */}
         <Link
           to="/"
@@ -144,7 +145,8 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden max-w-7xl mx-auto px-6 py-4 bg-[#050b15]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-2xl animate-in fade-in slide-in-from-top-2">
+        <div className="md:hidden w-full px-6 py-4 bg-[#050b15]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-2xl animate-in fade-in slide-in-from-top-2">
+
           <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <NavLink
