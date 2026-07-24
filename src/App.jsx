@@ -1,9 +1,9 @@
-import React from 'react'
+// src/App.jsx
 
-const App = () => {
-  return (
-    <div className='bg-red-600'>App</div>
-  )
+import AppRoutes from "./routes/AppRoutes";
+
+function App() {
+  return <AppRoutes />;
 }
 
-export default App
+export default App;
