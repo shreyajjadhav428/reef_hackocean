@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+
+const Dive = () => {
+  const [activeChapter, setActiveChapter] = useState("surface");
+
+  const chapters = [
+    { id: "surface", label: "Surface", sectionId: "chapter-surface" },
+    { id: "diving", label: "Diving", sectionId: "chapter-dive" },
+    { id: "deep", label: "Deep", sectionId: "chapter-deep" },
+    { id: "abyss", label: "Abyss", sectionId: "chapter-abyss" },
+  ];
 
   const scrollToSection = (id, sectionId) => {
     setActiveChapter(id);

@@ -98,4 +98,4 @@ const ThreatZone = () => {
   );
 };
 
-export default ThreatZone;
+export default ThreatZone;

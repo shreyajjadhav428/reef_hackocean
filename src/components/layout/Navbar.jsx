@@ -79,6 +79,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
   }, [location.pathname]);
 
@@ -183,4 +184,4 @@ const Navbar = () => {
 
 export default Navbar;
 
-
+
