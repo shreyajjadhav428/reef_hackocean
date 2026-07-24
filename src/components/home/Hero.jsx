@@ -37,7 +37,9 @@ const Hero = () => {
       className="relative w-full bg-[#040810] text-white overflow-hidden select-none"
     >
       {/* 100% Width Outer Frame */}
-      <div className="w-full bg-[#060d19] border-b border-slate-800/80 shadow-2xl relative min-h-screen flex flex-col justify-between">
+      <div className="w-full bg-[#060d19] relative min-h-screen flex flex-col justify-between">
+
+
         
         {/* Navbar Entrance */}
         <motion.div

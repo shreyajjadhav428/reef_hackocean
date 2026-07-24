@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Icons for the 4 Species Cards
 const CoralTreeIcon = () => (
@@ -69,22 +70,34 @@ const speciesList = [
 
 const CoralZone = () => {
   return (
-    <section id="chapter-coral" className="relative w-full bg-[#040810] text-white">
-      <div className="w-full bg-[#060e1b] border-b border-slate-800/80 shadow-2xl overflow-hidden relative p-8 sm:p-16 lg:p-24">
+    <section id="chapter-coral" className="relative w-full bg-[#060e1b] text-white overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full bg-[#060e1b] overflow-hidden relative p-8 sm:p-16 lg:p-24"
+      >
 
-        
         {/* Background Image: Corals */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/corals.jpg"
             alt="Coral Reef"
+            loading="lazy"
             className="w-full h-full object-cover object-bottom opacity-35"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#060e1b] via-[#060e1b]/70 to-transparent" />
         </div>
 
         {/* Section 3 Header */}
-        <div className="relative z-10 max-w-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative z-10 max-w-xl"
+        >
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
             A World of Life <br />
             <span className="text-slate-100">Beneath the Waves</span>
@@ -101,15 +114,19 @@ const CoralZone = () => {
               Explore Reef
             </Link>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Section 4 Species Grid (4 Cards Row) */}
+        {/* Section 4 Species Grid (4 Cards Row with Stagger Reveal) */}
         <div className="relative z-10 mt-14 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {speciesList.map((item) => {
+          {speciesList.map((item, idx) => {
             const IconComp = item.icon;
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: 0.2 + idx * 0.15 }}
                 className="bg-[#050c18]/85 backdrop-blur-md border border-slate-800/80 hover:border-cyan-500/40 rounded-2xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] group"
               >
                 <div className="w-12 h-12 rounded-xl bg-cyan-950/40 border border-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300">
@@ -121,14 +138,14 @@ const CoralZone = () => {
                 <p className="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
                   {item.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
 
-export default CoralZone;
+export default CoralZone;
+

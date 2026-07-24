@@ -85,11 +85,10 @@ const Navbar = () => {
   return (
     <header className="w-full z-50 pt-2 pb-2">
       <div
-        className={`w-full px-6 sm:px-12 py-4 flex items-center justify-between transition-all duration-300 ${
-          scrolled
+        className={`w-full px-6 sm:px-12 py-4 flex items-center justify-between transition-all duration-300 ${scrolled
             ? "bg-[#040912]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-2xl"
             : "bg-transparent"
-        }`}
+          }`}
       >
 
         {/* Left: Logo */}
@@ -111,10 +110,9 @@ const Navbar = () => {
               to={link.path}
               end={link.path === "/"}
               className={({ isActive }) =>
-                `text-sm lg:text-base font-medium transition-colors duration-200 ${
-                  isActive
-                    ? "text-cyan-300 font-semibold"
-                    : "text-slate-300 hover:text-white"
+                `text-sm lg:text-base font-medium transition-colors duration-200 ${isActive
+                  ? "text-cyan-300 font-semibold"
+                  : "text-slate-300 hover:text-white"
                 }`
               }
             >
@@ -155,10 +153,9 @@ const Navbar = () => {
                 end={link.path === "/"}
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg text-base font-medium transition-colors ${
-                    isActive
-                      ? "bg-cyan-950/60 text-cyan-300 font-semibold"
-                      : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  `px-4 py-2 rounded-lg text-base font-medium transition-colors ${isActive
+                    ? "bg-cyan-950/60 text-cyan-300 font-semibold"
+                    : "text-slate-300 hover:bg-white/5 hover:text-white"
                   }`
                 }
               >
@@ -183,4 +180,4 @@ const Navbar = () => {
 
 export default Navbar;
 
-
+
