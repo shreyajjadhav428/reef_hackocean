@@ -5,7 +5,7 @@ import VolunteerTimeline from '../components/volunteer/VolunteerTimeline';
 import Events from '../components/volunteer/Events';
 import Benefits from '../components/volunteer/Benefits';
 import VolunteerForm from '../components/volunteer/VolunteerForm';
-import Cta from '../components/volunteer/Cta';
+import Cta from '../components/volunteer/CTA';
 
 const Volunteer = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
