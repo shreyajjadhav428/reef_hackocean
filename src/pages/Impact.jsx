@@ -3,7 +3,7 @@ import React from 'react';
 // Component Imports
 import Statistics from '../components/impact/Statistics';
 import Projects from '../components/impact/Projects';
-import WorldMap from '../components/impact/WorldMap';
+import WorldMap from '../components/impact/Worldmap';
 import SuccessStories from '../components/impact/SuccessStories';
 import FutureGoals from '../components/impact/FutureGoals';
 
