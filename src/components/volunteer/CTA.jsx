@@ -33,8 +33,8 @@ const Cta = () => {
       >
         {/* Background Photo with Dark Gradient Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <img
-            src="/images/diver_dark_water.png"
+          <img loading="lazy"
+            src="/images/diver_dark_water.webp"
             alt="Ocean Reef Sanctuary"
             className="w-full h-full object-cover object-center opacity-45 group-hover:scale-105 transition-transform duration-700"
           />

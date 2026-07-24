@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import clickAudio from "../../assets/audio/click.mp3";
 
 const CoralZone = () => {
   const [ripples, setRipples] = useState([]);
@@ -14,13 +15,21 @@ const CoralZone = () => {
       y,
     };
     setRipples((prev) => [...prev.slice(-15), newRipple]);
+
+    // Play click audio for ripple effect
+    try {
+      const audio = new Audio(clickAudio);
+      audio.volume = 0.4;
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    } catch (err) {}
   };
 
   return (
     <section 
       id="chapter-coral" 
       onClick={handleSectionClick}
-      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none cursor-crosshair flex items-center justify-end snap-start snap-always"
+      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none cursor-crosshair flex items-start sm:items-center justify-end snap-start snap-always"
     >
       {/* WATER RIPPLE EFFECT LAYER */}
       <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
@@ -57,8 +66,8 @@ const CoralZone = () => {
 
       {/* CORAL REEF BACKGROUND IMAGE */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-65">
-        <img
-          src="/images/coral_reef_bg.png"
+        <img loading="lazy"
+          src="/images/coral_reef_bg.webp"
           alt="Coral Reef Underwater"
           className="w-full h-full object-cover object-center"
         />
@@ -77,7 +86,7 @@ const CoralZone = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-12 sm:mr-24 lg:mr-36 text-left py-8 sm:py-12 px-6 sm:px-0"
+        className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-0 sm:mr-24 lg:mr-36 text-left pt-24 pb-44 sm:py-12 px-6 sm:px-0"
       >
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-md">
           Living Wonders. <br />

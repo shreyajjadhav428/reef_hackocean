@@ -8,28 +8,28 @@ const Timeline = () => {
       title: "The First Dive",
       description: "REEF was founded by a small group of marine biologists and ocean advocates who saw the urgent need to protect degrading local coral ecosystems.",
       icon: <FiAnchor size={20} />,
-      imageSrc: "/images/diver_dark_water.png"
+      imageSrc: "/images/diver_dark_water.webp"
     },
     {
       year: "2020",
       title: "Coral Restoration Initiative",
       description: "Launched our first major coral nursery, successfully fragmenting and replanting over 10,000 heat-resilient corals back into the ocean.",
       icon: <FiDroplet size={20} />,
-      imageSrc: "/images/corals.jpg"
+      imageSrc: "/images/corals.webp"
     },
     {
       year: "2023",
       title: "Global Ocean Alliance",
       description: "Expanded our reach internationally, partnering with local communities and global NGOs to establish marine protected areas.",
       icon: <FiLifeBuoy size={20} />,
-      imageSrc: "/images/action_ocean_bg.png"
+      imageSrc: "/images/action_ocean_bg.webp"
     },
     {
       year: "2026",
       title: "A Bluer Future",
       description: "Leveraging cutting-edge storytelling and interactive digital experiences to educate millions and drive real-world conservation action.",
       icon: <FiGlobe size={20} />,
-      imageSrc: "/images/surface ocean.jpg"
+      imageSrc: "/images/surface ocean.webp"
     }
   ];
 
@@ -80,7 +80,7 @@ const Timeline = () => {
                 {/* Image Container for alternating layout on desktop */}
                 <div className={`hidden md:block md:w-1/2 ${isEven ? 'pl-16' : 'pr-16'}`}>
                   <div className="w-full h-48 rounded-2xl overflow-hidden shadow-2xl relative group border border-slate-800/80">
-                    <img 
+                    <img loading="lazy" 
                       src={item.imageSrc} 
                       alt={item.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
@@ -95,7 +95,7 @@ const Timeline = () => {
                 </div>
                 
                 {/* Content Card */}
-                <div className={`w-full pl-20 md:pl-0 md:w-1/2 ${isEven ? 'md:pr-16' : 'md:pl-16'} mt-4 md:mt-0`}>
+                <div className={`w-full pl-14 sm:pl-20 md:pl-0 md:w-1/2 ${isEven ? 'md:pr-16' : 'md:pl-16'} mt-4 md:mt-0`}>
                   <div className="bg-[#050c18] border border-slate-800/80 rounded-2xl p-8 shadow-xl hover:border-cyan-500/50 hover:bg-[#060e1b] transition-all duration-300 relative overflow-hidden group">
                     {/* Hover light effect */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/0 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

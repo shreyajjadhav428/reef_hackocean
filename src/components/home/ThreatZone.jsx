@@ -4,10 +4,10 @@ import plasticBagSvg from "../../assets/svg/plastic bag.svg";
 import plasticBottleSvg from "../../assets/svg/plastic bottle svg.svg";
 
 const initialTrash = [
-  { id: 1, type: "bottle", svg: plasticBottleSvg, className: "absolute -top-14 sm:-top-20 -left-24 sm:-left-44 lg:-left-52", wClass: "w-24 sm:w-36 lg:w-44", animate: { y: [0, -14, 0], rotate: [-4, 4, -4] }, duration: 6 },
+  { id: 1, type: "bottle", svg: plasticBottleSvg, className: "absolute -top-14 sm:-top-20 -left-4 sm:-left-44 lg:-left-52", wClass: "w-24 sm:w-36 lg:w-44", animate: { y: [0, -14, 0], rotate: [-4, 4, -4] }, duration: 6 },
   { id: 2, type: "bag", svg: plasticBagSvg, className: "absolute -bottom-14 sm:-bottom-20 -right-8 sm:-right-20", wClass: "w-28 sm:w-40 lg:w-48", animate: { y: [0, 14, 0], rotate: [6, -6, 6] }, duration: 6.5 },
   { id: 3, type: "bottle", svg: plasticBottleSvg, className: "absolute -top-32 sm:-top-48 right-10 sm:right-20", wClass: "w-16 sm:w-20 lg:w-24", animate: { y: [0, 10, 0], rotate: [-10, 10, -10] }, duration: 5.5 },
-  { id: 4, type: "bag", svg: plasticBagSvg, className: "absolute bottom-32 sm:bottom-40 -left-32 sm:-left-64", wClass: "w-20 sm:w-24 lg:w-28", animate: { y: [0, -10, 0], rotate: [5, -15, 5] }, duration: 7 }
+  { id: 4, type: "bag", svg: plasticBagSvg, className: "absolute bottom-32 sm:bottom-40 -left-4 sm:-left-64", wClass: "w-20 sm:w-24 lg:w-28", animate: { y: [0, -10, 0], rotate: [5, -15, 5] }, duration: 7 }
 ];
 
 const ThreatZone = () => {
@@ -28,7 +28,7 @@ const ThreatZone = () => {
   return (
     <section 
       id="chapter-threat" 
-      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none flex items-center snap-start snap-always"
+      className="relative w-full min-h-screen bg-[#040810] text-white overflow-hidden select-none flex items-start sm:items-center snap-start snap-always"
     >
       {/* Smooth Section Junction Gradient Overlays */}
       <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#040810] to-transparent pointer-events-none z-10" />
@@ -36,8 +36,8 @@ const ThreatZone = () => {
 
       {/* FULL SECTION THREAT ZONE BACKGROUND IMAGE */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-65">
-        <img
-          src="/images/threat_zone_full_bg.png"
+        <img loading="lazy"
+          src="/images/threat_zone_full_bg.webp"
           alt="Threatened Ocean Dark Waters"
           className="w-full h-full object-cover object-center"
         />
@@ -54,7 +54,7 @@ const ThreatZone = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-12 sm:mr-24 lg:mr-36 text-left py-8 sm:py-12 px-6 sm:px-0"
+        className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-0 sm:mr-24 lg:mr-36 text-left pt-24 pb-44 sm:py-12 px-6 sm:px-0"
       >
         {/* INTERACTIVE TRASH ITEMS */}
         <AnimatePresence>

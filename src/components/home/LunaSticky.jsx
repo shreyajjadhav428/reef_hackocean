@@ -230,7 +230,7 @@ const LunaSticky = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed left-6 sm:left-14 lg:left-20 bottom-8 sm:bottom-14 lg:bottom-16 z-50 flex items-end gap-3 select-none pointer-events-auto"
+        className="fixed left-3 sm:left-14 lg:left-20 bottom-4 sm:bottom-14 lg:bottom-16 z-50 flex items-end gap-2 sm:gap-3 select-none pointer-events-auto"
       >
         {/* White Cloud Dialogue Bubble */}
         <motion.div
@@ -238,7 +238,7 @@ const LunaSticky = () => {
           initial={{ opacity: 0, y: 10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className={`absolute bottom-full left-0 mb-4 w-[22rem] sm:w-[28rem] p-5 sm:p-6 rounded-3xl bg-white/95 border ${showThreatHint ? 'border-rose-400' : 'border-cyan-200/80'} backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.5)] text-slate-900 pointer-events-auto transition-colors`}
+          className={`absolute bottom-full left-0 mb-3 sm:mb-4 w-[calc(100vw-5rem)] sm:w-[22rem] md:w-[28rem] p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl bg-white/95 border ${showThreatHint ? 'border-rose-400' : 'border-cyan-200/80'} backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.5)] text-slate-900 pointer-events-auto transition-colors`}
         >
           <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-slate-200">
             <div className="flex items-center gap-2">
@@ -250,7 +250,7 @@ const LunaSticky = () => {
             </span>
           </div>
 
-          <p className={`text-slate-900 text-base sm:text-lg font-serif leading-relaxed min-h-[64px] flex items-center font-medium ${showThreatHint ? 'text-rose-900' : ''}`}>
+          <p className={`text-slate-900 text-sm sm:text-base md:text-lg font-serif leading-relaxed min-h-[48px] sm:min-h-[64px] flex items-center font-medium ${showThreatHint ? 'text-rose-900' : ''}`}>
             "{displayedText}"
           </p>
 
@@ -304,11 +304,11 @@ const LunaSticky = () => {
             transition={{ duration: 0.4 }}
             src={currentSection === "threat" ? lunaAnxiousSvg : lunaSvg}
             alt="Luna the Sea Turtle"
-            className="w-52 h-52 sm:w-64 sm:h-64 lg:w-72 lg:h-72 object-contain filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.75)]"
+            className="w-28 h-28 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.75)]"
           />
 
           {/* Companion Badge */}
-          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-400/40 text-cyan-300 text-sm sm:text-base font-semibold shadow-lg backdrop-blur-sm whitespace-nowrap">
+          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-slate-900/90 border border-cyan-400/40 text-cyan-300 text-xs sm:text-sm md:text-base font-semibold shadow-lg backdrop-blur-sm whitespace-nowrap">
             Luna 🐢
           </div>
         </div>

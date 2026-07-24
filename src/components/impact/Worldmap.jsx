@@ -82,7 +82,7 @@ const WorldMap = () => {
         className="relative w-full aspect-square md:aspect-video bg-[#050c18] border-2 border-cyan-500/40 rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(34,211,238,0.2)] flex items-center justify-center p-4 group"
       >
         {/* Glowing Radial Ocean Light Behind Map */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.18)_0%,transparent_70%)] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.18)_0%,transparent_70%)] pointer-events-none hidden md:block"></div>
 
         {/* World Map SVG Background - Vibrant Cyan Glow & High Visibility */}
         <div className="absolute inset-0 opacity-70 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-center bg-contain pointer-events-none filter brightness-150 invert-[0.85] hue-rotate-[155deg] saturate-[350%] drop-shadow-[0_0_14px_rgba(34,211,238,0.7)] transition-opacity duration-300"></div>

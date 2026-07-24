@@ -13,8 +13,8 @@ const Impact = () => {
       
       {/* VIVID TOP HEADER BACKGROUND IMAGE (Extends to 20px below subheading) */}
       <div className="absolute top-0 inset-x-0 h-[480px] sm:h-[520px] lg:h-[540px] z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/surface ocean.jpg"
+        <img loading="lazy"
+          src="/images/surface ocean.webp"
           alt="Surface Ocean Habitat Impact"
           className="w-full h-full object-cover object-bottom opacity-85 brightness-105"
         />
@@ -29,7 +29,7 @@ const Impact = () => {
       </div>
 
       {/* Main Content Area - Components spaced for scroll immersion */}
-      <main className="relative z-10 space-y-32 md:space-y-40 flex flex-col items-center w-full">
+      <main className="relative z-10 space-y-16 md:space-y-32 lg:space-y-40 flex flex-col items-center w-full">
         <Statistics />
         <Projects />
         <WorldMap />

@@ -160,28 +160,31 @@ const Hero = () => {
             
             {/* Line-by-Line Staggered Headline Motion */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-white tracking-tight drop-shadow-lg flex flex-col gap-1 sm:gap-2">
-              {headlineLines.map((line, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    duration: 0.75,
-                    delay: 0.3 + index * 0.38,
-                    ease: "easeOut",
-                  }}
-                  className="inline-block"
-                >
-                  {line}
-                </motion.span>
-              ))}
+              {headlineLines.map((line, index) => {
+                const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+                return (
+                  <motion.span
+                    key={index}
+                    initial={isMobile ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 35, filter: "blur(6px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    transition={{
+                      duration: 0.75,
+                      delay: isMobile ? 0 : 0.3 + index * 0.38,
+                      ease: "easeOut",
+                    }}
+                    className="inline-block"
+                  >
+                    {line}
+                  </motion.span>
+                );
+              })}
             </h1>
 
             {/* Dive In Button Motion */}
             <motion.div
-              initial={{ opacity: 0, y: 25, scale: 0.95 }}
+              initial={typeof window !== 'undefined' && window.innerWidth < 768 ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 25, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1.5, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : 1.5, ease: "easeOut" }}
               className="mt-6 sm:mt-8"
             >
               <button

@@ -12,7 +12,7 @@ const Dive = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 1 }}
-        className="w-full bg-[#040810] relative min-h-screen flex flex-col sm:flex-row items-center justify-between py-10 sm:py-16 px-6 sm:px-12 lg:px-16 overflow-hidden gap-8"
+        className="w-full bg-[#040810] relative min-h-screen flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between pt-24 pb-44 sm:py-16 px-6 sm:px-12 lg:px-16 overflow-hidden gap-8"
       >
         {/* Background Video Element */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-80">
@@ -46,7 +46,7 @@ const Dive = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-12 sm:mr-24 lg:mr-36 text-left py-8 sm:py-12"
+          className="relative z-20 max-w-md lg:max-w-xl ml-auto mr-0 sm:mr-24 lg:mr-36 text-left py-4 sm:py-12"
         >
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-md">
             Dive deeper. <br />

@@ -44,8 +44,8 @@ const SupportReef = () => {
       
       {/* VIVID TOP HEADER BACKGROUND IMAGE */}
       <div className="absolute top-0 inset-x-0 h-[440px] sm:h-[480px] lg:h-[500px] z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/coral_reef_bg.png"
+        <img loading="lazy"
+          src="/images/coral_reef_bg.webp"
           alt="Support Reef Conservation"
           className="w-full h-full object-cover object-center opacity-85 brightness-105"
         />

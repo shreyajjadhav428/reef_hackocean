@@ -82,6 +82,15 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   return (
     <header className="fixed top-0 left-0 right-0 w-full z-[999] border-b border-cyan-400/40 shadow-[0_4px_20px_rgba(34,211,238,0.25)] backdrop-blur-md bg-[#040912]/85 transition-all duration-300">
       <div

@@ -58,7 +58,7 @@ const ChapterScroller = () => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed right-0 top-0 bottom-0 h-screen z-40 select-none pointer-events-auto flex items-center">
+        <div className="fixed right-0 top-0 bottom-0 h-screen z-40 select-none pointer-events-auto hidden sm:flex items-center">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}

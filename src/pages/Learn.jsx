@@ -59,7 +59,7 @@ const topicDetails = {
     title: "Coral Reef Ecosystems",
     tagline: "The Rainforests of the Sea",
     description: "Coral reefs support over 25% of all marine life despite covering less than 1% of the ocean floor. They act as essential nursery grounds, coastal surge buffers, and ocean carbon sinks.",
-    image: "/images/corals.jpg",
+    image: "/images/corals.webp",
     stats: [
       { label: "Marine Life Supported", value: "25%+" },
       { label: "Coastlines Protected", value: "71,000+ km" },
@@ -75,7 +75,7 @@ const topicDetails = {
     title: "Marine Plastic & Waste Crisis",
     tagline: "Un-Plasticking Our Oceans",
     description: "Over 11 million metric tons of plastic waste enter global ocean waters annually. Ghost nets and microplastics degrade marine habitats and harm sea life across all abyssal depths.",
-    image: "/images/Plastic bottle.jpg",
+    image: "/images/Plastic bottle.webp",
     stats: [
       { label: "Annual Plastic Inflow", value: "11M Tons" },
       { label: "Microplastic Particles", value: "50 Trillion+" },
@@ -91,7 +91,7 @@ const topicDetails = {
     title: "Marine Biodiversity & Habitats",
     tagline: "Protecting Underwater Creatures",
     description: "From sea turtles and clownfish to sea otters and coral species, rich marine biodiversity is essential for stabilizing global ocean food webs and oxygen production.",
-    image: "/images/clownfish.png",
+    image: "/images/clownfish.webp",
     stats: [
       { label: "Cataloged Species", value: "240,000+" },
       { label: "Endangered Marine Life", value: "2,200+ Species" },
@@ -107,7 +107,7 @@ const topicDetails = {
     title: "Ocean Climate Regulation",
     tagline: "Thermal Buffers & Acidification",
     description: "Oceans absorb 90% of excess global atmospheric heat. Rising water temperatures cause widespread coral bleaching, while excess CO2 increases seawater acidity.",
-    image: "/images/coral_bleaching.png",
+    image: "/images/coral_bleaching.webp",
     stats: [
       { label: "Excess Heat Absorbed", value: "90%" },
       { label: "CO2 Absorption Rate", value: "30% Global" },
@@ -123,7 +123,7 @@ const topicDetails = {
     title: "Marine Conservation & Action",
     tagline: "Science-Driven Action",
     description: "Combining community mobilization, marine protected areas (MPAs), and robotic sea restoration to safeguard marine ecosystems for future generations.",
-    image: "/images/action_ocean_bg.png",
+    image: "/images/action_ocean_bg.webp",
     stats: [
       { label: "Marine Protected Areas", value: "8.2% Globally" },
       { label: "2030 Global Target", value: "30% Ocean Protected" },
@@ -142,25 +142,25 @@ const explorerSlides = [
     id: 1,
     title: "Great Barrier Reef",
     location: "Australia",
-    image: "/images/corals.jpg",
+    image: "/images/corals.webp",
   },
   {
     id: 2,
     title: "Raja Ampat Coral Sanctuary",
     location: "Indonesia",
-    image: "/images/raja_ampat.png",
+    image: "/images/raja_ampat.webp",
   },
   {
     id: 3,
     title: "Deep Abyssal Trench",
     location: "Pacific Ocean",
-    image: "/images/deep ocean.jpg",
+    image: "/images/deep ocean.webp",
   },
   {
     id: 4,
     title: "Galapagos Marine Reserve",
     location: "Ecuador",
-    image: "/images/turtle.png",
+    image: "/images/turtle.webp",
   },
 ];
 
@@ -168,22 +168,22 @@ const researchReports = [
   {
     id: 1,
     title: "Global Coral Reef Status Report 2024",
-    image: "/images/staghorn_coral.png",
+    image: "/images/staghorn_coral.webp",
   },
   {
     id: 2,
     title: "Microplastics in Our Oceans",
-    image: "/images/Plastic bottle.jpg",
+    image: "/images/Plastic bottle.webp",
   },
   {
     id: 3,
     title: "Rising Ocean Temperatures",
-    image: "/images/coral_bleaching.png",
+    image: "/images/coral_bleaching.webp",
   },
   {
     id: 4,
     title: "Sustainable Fisheries Report",
-    image: "/images/clownfish.png",
+    image: "/images/clownfish.webp",
   },
 ];
 
@@ -247,8 +247,8 @@ const Learn = () => {
       
       {/* VIVID HEADER BACKGROUND IMAGE (Extends to 20px below subheading) */}
       <div className="absolute top-0 inset-x-0 h-[440px] sm:h-[480px] lg:h-[500px] z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/image.png"
+        <img loading="lazy"
+          src="/images/image.webp"
           alt="Ocean Environment"
           className="w-full h-full object-cover object-bottom opacity-85 brightness-105"
         />
@@ -293,7 +293,7 @@ const Learn = () => {
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Explore Topics</h2>
             
             {/* Topic Selection Buttons Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8">
               {topics.map((topic) => {
                 const IconComp = topic.icon;
                 const isSelected = selectedTopic === topic.id;
@@ -344,7 +344,7 @@ const Learn = () => {
                     </p>
 
                     {/* Stats Highlights */}
-                    <div className="grid grid-cols-3 gap-3 mb-6 border-y border-slate-800/80 py-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 border-y border-slate-800/80 py-4">
                       {activeTopicInfo.stats.map((stat, idx) => (
                         <div key={idx} className="text-left">
                           <div className="text-cyan-300 font-bold text-base sm:text-xl">{stat.value}</div>
@@ -367,7 +367,7 @@ const Learn = () => {
 
                 {/* Right Image Feature Column */}
                 <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-slate-800/80 shadow-lg group">
-                  <img
+                  <img loading="lazy"
                     src={activeTopicInfo.image}
                     alt={activeTopicInfo.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

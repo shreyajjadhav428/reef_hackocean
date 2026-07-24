@@ -56,10 +56,12 @@ const ReefSimulation = ({ selectedImpact, contributionAmount, isConfirmed }) => 
       {/* 2. Water Depth Gradient Layer */}
       <div 
         className="absolute inset-0 transition-colors duration-1000 pointer-events-none"
-        style={{
-          background: vitality > 60 
-            ? 'radial-gradient(circle at 50% 30%, rgba(6, 40, 65, 0.9) 0%, rgba(4, 8, 16, 1) 100%)' 
-            : 'radial-gradient(circle at 50% 30%, rgba(4, 20, 35, 0.8) 0%, rgba(3, 8, 18, 1) 100%)'
+        style={{ 
+          background: typeof window !== 'undefined' && window.innerWidth < 768 
+            ? (vitality > 60 ? '#040810' : '#030812')
+            : (vitality > 60 
+              ? 'radial-gradient(circle at 50% 30%, rgba(6, 40, 65, 0.9) 0%, rgba(4, 8, 16, 1) 100%)' 
+              : 'radial-gradient(circle at 50% 30%, rgba(4, 20, 35, 0.8) 0%, rgba(3, 8, 18, 1) 100%)')
         }}
       />
 
@@ -131,7 +133,7 @@ const ReefSimulation = ({ selectedImpact, contributionAmount, isConfirmed }) => 
           <motion.div
             initial={{ x: '-120px', y: '160px', opacity: 0 }}
             animate={{
-              x: ['-100px', '520px'],
+              x: ['-100px', '100%'],
               y: ['160px', '120px', '180px'],
               opacity: [0, 0.9, 0.9, 0],
             }}
@@ -162,9 +164,9 @@ const ReefSimulation = ({ selectedImpact, contributionAmount, isConfirmed }) => 
           return (
             <motion.div
               key={i}
-              initial={{ x: i % 2 === 0 ? '-60px' : '550px', y: topPos }}
+              initial={{ x: i % 2 === 0 ? '-60px' : '100%', y: topPos }}
               animate={{
-                x: i % 2 === 0 ? ['-60px', '580px'] : ['580px', '-60px'],
+                x: i % 2 === 0 ? ['-60px', '100%'] : ['100%', '-60px'],
                 y: [topPos, topPos + (i % 2 === 0 ? 15 : -15), topPos],
               }}
               transition={{

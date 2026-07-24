@@ -10,7 +10,7 @@ const Events = ({ onRegister }) => {
       time: "07:00 AM - 11:00 AM",
       location: "Marine Drive, Mumbai",
       type: "Land-Based",
-      imageSrc: "/images/collecting the garbage.jpg"
+      imageSrc: "/images/collecting the garbage.webp"
     },
     {
       title: "Coral Fragmentation Workshop",
@@ -18,7 +18,7 @@ const Events = ({ onRegister }) => {
       time: "09:00 AM - 02:00 PM",
       location: "REEF Headquarters",
       type: "Training",
-      imageSrc: "/images/corals.jpg"
+      imageSrc: "/images/corals.webp"
     },
     {
       title: "Dive Against Debris",
@@ -26,7 +26,7 @@ const Events = ({ onRegister }) => {
       time: "06:30 AM - 01:00 PM",
       location: "Andaman Islands",
       type: "Diving",
-      imageSrc: "/images/diver_dark_water.png"
+      imageSrc: "/images/diver_dark_water.webp"
     }
   ];
 
@@ -96,7 +96,7 @@ const Events = ({ onRegister }) => {
           >
             {/* Event Image / Visual */}
             <div className="w-full h-48 relative overflow-hidden bg-[#060e1b]">
-              <img
+              <img loading="lazy"
                 src={event.imageSrc}
                 alt={event.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"

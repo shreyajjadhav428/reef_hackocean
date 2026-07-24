@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import kaiSvg from '../../assets/svg/kai.svg';
+import clickAudio from '../../assets/audio/click.mp3';
 
 const sectionBehaviors = {
   hero: { maxSpeed: 1.5, filter: 'brightness(1)', scale: 1 },
@@ -97,6 +98,15 @@ const InteractiveFish = () => {
       // Create ripple effect
       const id = Date.now();
       setRipples(prev => [...prev, { id, x, y }]);
+      
+      // Play click sound for ripple
+      try {
+        const audio = new Audio(clickAudio);
+        audio.volume = 0.4;
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+      } catch (err) {}
+
       setTimeout(() => {
          setRipples(prev => prev.filter(r => r.id !== id));
       }, 1000);
@@ -306,7 +316,7 @@ const InteractiveFish = () => {
           willChange: 'transform, filter'
         }}
       >
-        <img 
+        <img loading="lazy" 
           src={kaiSvg} 
           alt="Interactive Fish" 
           className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"

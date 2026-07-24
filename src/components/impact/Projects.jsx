@@ -60,7 +60,7 @@ Within months, schools of colorful reef fish returned to areas that had once app
 Closing Message
 
 A thriving reef is never rebuilt overnight. It grows through patience, science, and thousands of small actions working together. Operation Coral Oasis reminds us that hope beneath the waves is something we can help create.`,
-      imageSrc: "/images/corals.jpg",
+      imageSrc: "/images/corals.webp",
       featured: true
     },
     {
@@ -112,7 +112,7 @@ As young mangroves establish themselves, birds begin returning to nest, fish pop
 Closing Message
 
 Protecting the ocean doesn't always begin beneath the waves. Sometimes, it begins where the forest meets the sea.`,
-      imageSrc: "/images/mangrove_forest.png",
+      imageSrc: "/images/mangrove_forest.webp",
       featured: false
     },
     {
@@ -165,7 +165,7 @@ Closing Message
 
 The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a reminder that protecting marine life also means taking responsibility for what no longer belongs beneath the waves.
 `,
-      imageSrc: "/images/ghost_nets.png",
+      imageSrc: "/images/ghost_nets.webp",
       featured: false
     }
   ];
@@ -227,7 +227,7 @@ The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a rem
           >
             {/* Background Image with Parallax-like Zoom */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-              <img 
+              <img loading="lazy" 
                 src={project.imageSrc} 
                 alt={project.title} 
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"

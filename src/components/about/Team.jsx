@@ -6,25 +6,25 @@ const Team = () => {
     {
       name: "Dr. Elena Rostova",
       role: "Lead Marine Biologist",
-      imageSrc: "/images/team_elena.png",
+      imageSrc: "/images/team_elena.webp",
       bio: "Spearheads our global coral fragmenting and restoration nurseries.",
     },
     {
       name: "Marcus Chen",
       role: "Oceanographic Director",
-      imageSrc: "/images/team_marcus.png",
+      imageSrc: "/images/team_marcus.webp",
       bio: "Maps temperature anomalies to locate heat-resilient reef zones.",
     },
     {
       name: "Sarah Jenkins",
       role: "Head of Community",
-      imageSrc: "/images/team_sarah.png",
+      imageSrc: "/images/team_sarah.webp",
       bio: "Builds alliances with local coastal communities and global NGOs.",
     },
     {
       name: "David Alaba",
       role: "Conservation Policy Lead",
-      imageSrc: "/images/team_david.png",
+      imageSrc: "/images/team_david.webp",
       bio: "Advocates for marine protected areas at the international level.",
     }
   ];
@@ -69,7 +69,7 @@ const Team = () => {
           >
             {/* Team Member Portrait Image */}
             <div className="w-full h-72 bg-[#060e1b] relative overflow-hidden">
-              <img 
+              <img loading="lazy" 
                 src={member.imageSrc} 
                 alt={member.name}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"

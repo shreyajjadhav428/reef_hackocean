@@ -9,28 +9,28 @@ const VolunteerTimeline = () => {
       title: "Sign Up",
       description: "Join our global network of ocean advocates. Create your profile and tell us about your skills and passion for marine conservation.",
       icon: <FiEdit3 size={24} />,
-      imageSrc: "/images/volunteer_action_bg.png"
+      imageSrc: "/images/volunteer_action_bg.webp"
     },
     {
       phase: "Step 02",
       title: "Training",
       description: "Complete our immersive online orientation. Learn about local reef ecosystems, safety protocols, and effective restoration techniques.",
       icon: <FiBookOpen size={24} />,
-      imageSrc: "/images/volunterring wokring.jpg"
+      imageSrc: "/images/volunterring wokring.webp"
     },
     {
       phase: "Step 03",
       title: "Cleanup & Restoration",
       description: "Dive in. Participate in local beach cleanups, underwater trash removal, or assist in our coral fragmentation nurseries.",
       icon: <FiTrash2 size={24} />,
-      imageSrc: "/images/collecting the garbage.jpg"
+      imageSrc: "/images/collecting the garbage.webp"
     },
     {
       phase: "Step 04",
       title: "Ocean Guardian",
       description: "Become a certified REEF Guardian. Lead your own community initiatives and mentor the next wave of volunteers.",
       icon: <FiShield size={24} />,
-      imageSrc: "/images/corals.jpg"
+      imageSrc: "/images/corals.webp"
     }
   ];
 
@@ -87,7 +87,7 @@ const VolunteerTimeline = () => {
                 {/* Image Container for alternating layout on desktop */}
                 <div className={`hidden md:block md:w-1/2 ${isEven ? 'pl-16' : 'pr-16'}`}>
                   <div className="w-full h-48 rounded-3xl overflow-hidden shadow-2xl relative group border border-slate-800/80">
-                    <img 
+                    <img loading="lazy" 
                       src={step.imageSrc} 
                       alt={step.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"

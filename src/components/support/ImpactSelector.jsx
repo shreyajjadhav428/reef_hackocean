@@ -56,7 +56,7 @@ const ImpactSelector = ({ selectedImpact, onSelectImpact }) => {
       </div>
 
       {/* Impact Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
         {impactOptions.map((option) => {
           const IconComp = option.icon;
           const isSelected = selectedImpact === option.id;

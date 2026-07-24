@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import TurtleContactImg from '../assets/images/Turtle_contact.png';
+import TurtleContactImg from '../assets/images/Turtle_contact.webp';
 import { 
   FiMail, 
   FiPhone, 
@@ -93,8 +93,8 @@ const Contact = () => {
       
       {/* VIVID TOP HEADER BACKGROUND IMAGE (Extends to 20px below subheading) */}
       <div className="absolute top-0 inset-x-0 h-[440px] sm:h-[480px] lg:h-[500px] z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/turtle.png"
+        <img loading="lazy"
+          src="/images/turtle.webp"
           alt="Ocean Sea Turtle Environment"
           className="w-full h-full object-cover object-center opacity-85 brightness-105"
         />
@@ -305,12 +305,12 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 w-full sm:w-auto">
               <a 
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedLandmark.query)}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[#071324] hover:bg-cyan-950/60 text-cyan-400 border border-cyan-500/30 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-300 shadow-md cursor-pointer hover:border-cyan-400"
+                className="w-full sm:w-auto justify-center flex items-center gap-2 bg-[#071324] hover:bg-cyan-950/60 text-cyan-400 border border-cyan-500/30 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-300 shadow-md cursor-pointer hover:border-cyan-400"
               >
                 <FiNavigation size={14} />
                 <span>Open Location in Google Maps</span>
@@ -321,7 +321,7 @@ const Contact = () => {
 
           {/* Interactive Global Reef Stations */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold text-slate-400 mr-2 flex items-center gap-1.5">
+            <span className="text-xs sm:text-sm font-semibold text-slate-400 mr-2 flex items-center gap-1.5 w-full sm:w-auto mb-1 sm:mb-0">
               <FiCompass className="text-cyan-400" size={14} /> Active Reef Stations:
             </span>
             {[
@@ -357,7 +357,7 @@ const Contact = () => {
               <button
                 key={spot.id}
                 onClick={() => setSelectedLandmark(spot)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer border ${
+                className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer border ${
                   selectedLandmark.id === spot.id
                     ? 'bg-[#9ce3ec] text-slate-950 border-[#9ce3ec] shadow-[0_0_12px_rgba(34,211,238,0.3)] font-bold'
                     : 'bg-[#071324] text-slate-300 border-slate-800 hover:border-cyan-500/50 hover:text-white'
@@ -384,21 +384,21 @@ const Contact = () => {
             />
 
             {/* Custom Coastal Marker Overlay Badge */}
-            <div className="absolute bottom-4 left-4 z-10 bg-[#040810]/90 backdrop-blur-md border border-cyan-500/40 px-4 py-2.5 rounded-xl flex items-center gap-3 shadow-2xl">
-              <div className="relative flex items-center justify-center">
+            <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 max-w-[calc(100%-1.5rem)] sm:max-w-md z-10 bg-[#040810]/90 backdrop-blur-md border border-cyan-500/40 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl flex items-center gap-2.5 sm:gap-3 shadow-2xl">
+              <div className="relative flex items-center justify-center shrink-0">
                 <div className="w-3 h-3 bg-cyan-400 rounded-full animate-ping absolute"></div>
                 <div className="w-3 h-3 bg-cyan-400 rounded-full relative z-10 shadow-[0_0_10px_rgba(34,211,238,0.9)]"></div>
               </div>
-              <div>
-                <div className="text-white text-xs font-bold">{selectedLandmark.label}</div>
-                <div className="text-cyan-300 text-[10px] font-mono">{selectedLandmark.coords} • {selectedLandmark.region}</div>
+              <div className="min-w-0">
+                <div className="text-white text-xs sm:text-sm font-bold truncate">{selectedLandmark.label}</div>
+                <div className="text-cyan-300 text-[10px] sm:text-xs font-mono truncate">{selectedLandmark.coords} • {selectedLandmark.region}</div>
               </div>
             </div>
 
             {/* Top Right Live Location Tag */}
-            <div className="absolute top-4 right-4 z-10 bg-[#050c18]/90 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-lg text-slate-300 text-[11px] font-semibold flex items-center gap-1.5 shadow-lg">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Thriving Coral Reef Sanctuary
+            <div className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 bg-[#050c18]/90 backdrop-blur-md border border-slate-800 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-slate-300 text-[10px] sm:text-xs font-semibold flex items-center gap-1.5 shadow-lg max-w-[calc(100%-2rem)]">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+              <span className="truncate">Thriving Coral Reef Sanctuary</span>
             </div>
           </div>
         </motion.div>
@@ -429,19 +429,19 @@ const Contact = () => {
                 <span className="font-semibold text-sm">Subscribed! You are now connected to REEF updates.</span>
               </motion.div>
             ) : (
-              <form onSubmit={handleNewsletterSubmit} className="flex">
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-0 w-full">
                 <input 
                   type="email" 
                   required
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Enter your email address" 
-                  className="w-full bg-[#060e1b]/80 border border-slate-800 border-r-0 rounded-l-xl py-3.5 px-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                  className="w-full bg-[#060e1b]/80 border border-slate-800 sm:border-r-0 rounded-xl sm:rounded-l-xl sm:rounded-r-none py-3.5 px-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
                 />
                 <button 
                   type="submit"
                   disabled={isNewsletterSubmitting}
-                  className="bg-[#9ce3ec] hover:bg-[#82d6df] text-slate-950 font-semibold px-6 rounded-r-xl flex items-center space-x-2 transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70"
+                  className="w-full sm:w-auto bg-[#9ce3ec] hover:bg-[#82d6df] text-slate-950 font-semibold py-3.5 px-6 rounded-xl sm:rounded-r-xl sm:rounded-l-none flex items-center justify-center space-x-2 transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70"
                 >
                   {isNewsletterSubmitting ? (
                     <span className="animate-pulse text-sm">Subscribing...</span>

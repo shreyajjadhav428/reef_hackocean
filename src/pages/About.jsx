@@ -10,8 +10,8 @@ const About = () => {
       
       {/* VIVID TOP HEADER BACKGROUND IMAGE (Extends to 20px below subheading title) */}
       <div className="absolute top-0 inset-x-0 h-[440px] sm:h-[480px] lg:h-[500px] z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/about.png"
+        <img loading="lazy"
+          src="/images/about.webp"
           alt="About Reef Foundation"
           className="w-full h-full object-cover object-center opacity-85 brightness-105"
         />
@@ -26,7 +26,7 @@ const About = () => {
       </div>
 
       {/* Main Content Area - Components spaced out to allow breathing room and scroll immersion */}
-      <main className="relative z-10 space-y-32 md:space-y-48 flex flex-col items-center w-full">
+      <main className="relative z-10 space-y-16 md:space-y-32 lg:space-y-48 flex flex-col items-center w-full">
         <Mission />
         <Vision />
         <Timeline />

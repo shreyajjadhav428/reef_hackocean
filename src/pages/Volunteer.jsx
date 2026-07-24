@@ -23,8 +23,8 @@ const Volunteer = () => {
       
       {/* VOLUNTEER CLEANING TOP HEADER BACKGROUND IMAGE (Vivid & Visible) */}
       <div className="absolute top-0 inset-x-0 h-[480px] sm:h-[520px] lg:h-[540px] z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/volunteer cleaning.jpg"
+        <img loading="lazy"
+          src="/images/volunteer cleaning.webp"
           alt="Volunteer Cleaning Ocean Action"
           className="w-full h-full object-cover object-bottom opacity-85 brightness-105"
         />
@@ -40,7 +40,7 @@ const Volunteer = () => {
       </div>
 
       {/* Main Content Area - Components spaced out to allow scroll immersion */}
-      <main className="relative z-10 space-y-32 md:space-y-40 flex flex-col items-center w-full">
+      <main className="relative z-10 space-y-16 md:space-y-32 lg:space-y-40 flex flex-col items-center w-full">
         <VolunteerTimeline />
         <Events onRegister={handleRegisterEvent} />
         <Benefits />
