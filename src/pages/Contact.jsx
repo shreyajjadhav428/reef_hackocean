@@ -89,41 +89,41 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#040810] text-white pt-24 pb-12 px-6 md:px-12 lg:px-24 font-serif selection:bg-cyan-500 selection:text-slate-950 select-none">
+    <div className="min-h-screen bg-[#040810] text-white pt-28 pb-12 px-6 md:px-12 lg:px-24 font-serif selection:bg-cyan-500 selection:text-slate-950 relative overflow-hidden select-none">
+      
+      {/* VIVID TOP HEADER BACKGROUND IMAGE (Extends to 20px below subheading) */}
+      <div className="absolute top-0 inset-x-0 h-[440px] sm:h-[480px] lg:h-[500px] z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/images/turtle.png"
+          alt="Ocean Sea Turtle Environment"
+          className="w-full h-full object-cover object-center opacity-85 brightness-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040810]/50 via-black/20 to-[#040810]" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#040810] to-transparent" />
+      </div>
+
       <motion.div 
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start mb-16 relative">
-          <motion.div variants={itemVariants} className="lg:w-1/2 z-10">
-            <h3 className="text-cyan-400 uppercase tracking-widest text-sm font-semibold mb-4">Contact Reef</h3>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-6 text-white">
-              Let's Connect.<br />
-              <span className="font-semibold text-slate-200">Let's Protect.</span>
-            </h1>
-            <p className="text-slate-300 text-lg max-w-md leading-relaxed">
-              We'd love to hear from you. Whether you have a question, an idea, or want to collaborate — we're all ears.
-            </p>
-          </motion.div>
-          
-          {/* Swimming Sea Turtle Photo */}
-          <motion.div 
-            variants={itemVariants} 
-            className="lg:w-7/12 lg:absolute lg:right-0 lg:-top-[20px] lg:translate-x-[40px] z-0 pointer-events-none mt-8 lg:mt-0 flex justify-start"
-          >
-            <div className="relative rounded-3xl overflow-hidden border border-cyan-500/30 shadow-[0_0_40px_rgba(34,211,238,0.25)] max-w-lg w-full">
-              <img 
-                src={TurtleContactImg} 
-                alt="Swimming Sea Turtle" 
-                className="w-full h-64 sm:h-80 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050c18] via-transparent to-transparent opacity-60" />
-            </div>
-          </motion.div>
-        </div>
+        {/* Header Section Centered */}
+        <motion.div 
+          variants={itemVariants}
+          className="text-center mb-16 max-w-4xl mx-auto"
+        >
+          <h3 className="text-cyan-300 uppercase tracking-[0.3em] text-xs sm:text-sm font-bold mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            Contact Reef
+          </h3>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6 tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            Let's Connect.<br />
+            <span className="font-light text-slate-200">Let's Protect.</span>
+          </h1>
+          <p className="text-slate-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+            We'd love to hear from you. Whether you have a question, an idea, or want to collaborate — we're all ears.
+          </p>
+        </motion.div>
 
         {/* Main Grid: Info & Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 z-10 relative">

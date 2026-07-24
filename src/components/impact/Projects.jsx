@@ -60,7 +60,7 @@ Within months, schools of colorful reef fish returned to areas that had once app
 Closing Message
 
 A thriving reef is never rebuilt overnight. It grows through patience, science, and thousands of small actions working together. Operation Coral Oasis reminds us that hope beneath the waves is something we can help create.`,
-      image: "bg-[url('https://images.unsplash.com/photo-1546505858-a836da32a39a?q=80&w=800&auto=format&fit=crop')]",
+      imageSrc: "/images/corals.jpg",
       featured: true
     },
     {
@@ -112,7 +112,7 @@ As young mangroves establish themselves, birds begin returning to nest, fish pop
 Closing Message
 
 Protecting the ocean doesn't always begin beneath the waves. Sometimes, it begins where the forest meets the sea.`,
-      image: "bg-[url('https://images.unsplash.com/photo-1621274220335-ebde89b0d1bf?q=80&w=800&auto=format&fit=crop')]",
+      imageSrc: "/images/mangrove_forest.png",
       featured: false
     },
     {
@@ -165,7 +165,7 @@ Closing Message
 
 The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a reminder that protecting marine life also means taking responsibility for what no longer belongs beneath the waves.
 `,
-      image: "bg-[url('https://images.unsplash.com/photo-1618472609777-b038f1f04b8d?q=80&w=800&auto=format&fit=crop')]",
+      imageSrc: "/images/ghost_nets.png",
       featured: false
     }
   ];
@@ -209,7 +209,6 @@ The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a rem
           <h3 className="text-cyan-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">Our Work</h3>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Global Initiatives</h2>
         </div>
-        
       </motion.div>
 
       {/* Projects Grid */}
@@ -224,20 +223,26 @@ The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a rem
           <motion.div 
             key={index}
             variants={cardVariants}
-            className={`group relative rounded-3xl overflow-hidden shadow-2xl ${project.featured ? 'lg:col-span-12' : 'lg:col-span-6'} min-h-[400px] flex flex-col justify-end border border-slate-800/80`}
+            className={`group relative rounded-3xl overflow-hidden shadow-2xl ${project.featured ? 'lg:col-span-12' : 'lg:col-span-6'} min-h-[420px] flex flex-col justify-end border border-slate-800/80`}
           >
             {/* Background Image with Parallax-like Zoom */}
-            <div className={`absolute inset-0 ${project.image} bg-cover bg-center group-hover:scale-105 transition-transform duration-1000 ease-out`}></div>
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <img 
+                src={project.imageSrc} 
+                alt={project.title} 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-85"
+              />
+            </div>
             
-            {/* Cinematic Overlay Gradients */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#040810] via-[#040810]/80 to-transparent"></div>
-            <div className="absolute inset-0 bg-[#050c18]/30 group-hover:bg-transparent transition-colors duration-300"></div>
+            {/* Cinematic Overlay Gradients for High Text Legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#040810] via-[#040810]/75 to-transparent z-10"></div>
+            <div className="absolute inset-0 bg-[#050c18]/40 group-hover:bg-[#050c18]/20 transition-colors duration-300 z-10"></div>
 
             {/* Status Badge */}
             <div className="absolute top-6 left-6 z-20">
               <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border backdrop-blur-md
                 ${project.status === 'Active' 
-                  ? 'bg-[#050c18]/90 border-cyan-500/50 text-cyan-300' 
+                  ? 'bg-[#050c18]/90 border-cyan-500/50 text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.3)]' 
                   : 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300'}`}
               >
                 {project.status === 'Active' && <FiActivity className="animate-pulse" />}
@@ -247,16 +252,16 @@ The ocean remembers everything we leave behind. Deep Sea Debris Renewal is a rem
 
             {/* Content Area */}
             <div className="relative z-20 p-8 md:p-12 w-full md:w-3/4 lg:w-2/3">
-              <div className="flex items-center gap-2 text-cyan-400 text-sm font-semibold mb-3">
+              <div className="flex items-center gap-2 text-cyan-300 text-sm font-semibold mb-3 drop-shadow-md">
                 <FiMapPin />
                 <span>{project.location}</span>
               </div>
               
-              <h3 className={`font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-300 ${project.featured ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>
+              <h3 className={`font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-300 drop-shadow-lg ${project.featured ? 'text-3xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>
                 {project.title}
               </h3>
               
-              <p className="text-slate-300 text-base md:text-lg font-normal leading-relaxed mb-6 line-clamp-3">
+              <p className="text-slate-200 text-base md:text-lg font-normal leading-relaxed mb-6 line-clamp-3 drop-shadow-md">
                 {project.description}
               </p>
               

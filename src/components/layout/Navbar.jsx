@@ -83,12 +83,13 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <header className="w-full z-50 pt-2 pb-2">
+    <header className="fixed top-0 left-0 right-0 w-full z-[999] border-b border-cyan-400/40 shadow-[0_4px_20px_rgba(34,211,238,0.25)] backdrop-blur-md bg-[#040912]/85 transition-all duration-300">
       <div
-        className={`w-full px-6 sm:px-12 py-4 flex items-center justify-between transition-all duration-300 ${scrolled
-            ? "bg-[#040912]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-2xl"
+        className={`w-full px-6 sm:px-12 py-4 flex items-center justify-between transition-all duration-300 ${
+          scrolled
+            ? "bg-[#040912]/95 backdrop-blur-xl shadow-2xl"
             : "bg-transparent"
-          }`}
+        }`}
       >
 
         {/* Left: Logo */}
@@ -121,13 +122,20 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right: Donate Pill Button */}
+        {/* Right: Support the Reef Pill Button with Moving Animated Border */}
         <div className="hidden md:flex items-center gap-3">
           <Link
             to="/donate"
-            className="px-5 py-1.5 rounded-full border border-cyan-500/60 hover:border-cyan-300 text-white text-sm font-medium transition duration-200 shadow-[0_0_12px_rgba(34,211,238,0.2)] hover:shadow-[0_0_18px_rgba(34,211,238,0.4)] hover:bg-cyan-950/40 cursor-pointer"
+            className="relative inline-flex items-center justify-center p-[2px] overflow-hidden rounded-full font-medium transition-all group cursor-pointer shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.65)]"
           >
-            Support the Reef
+            {/* Animated Rotating Gradient Border */}
+            <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#040810_0%,#22d3ee_50%,#040810_100%)] group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,#22d3ee_0%,#a5f3fc_50%,#22d3ee_100%)]" />
+            
+            {/* Inner Button Content */}
+            <span className="inline-flex items-center justify-center w-full px-5 py-1.5 text-xs lg:text-sm font-semibold text-white bg-[#040912]/95 rounded-full backdrop-blur-xl group-hover:bg-[#08182c]/95 group-hover:text-cyan-200 transition-colors duration-300 gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping mr-1"></span>
+              Support the Reef
+            </span>
           </Link>
         </div>
 
