@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiPlayCircle, FiArrowRight } from 'react-icons/fi';
+import StoryOverlay from '../common/StoryOverlay';
 
 const SuccessStories = () => {
+  const [selectedStoryTitle, setSelectedStoryTitle] = useState('');
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
   const storiesData = [
     {
       title: "The Return of the Manta Rays",
@@ -21,6 +25,11 @@ const SuccessStories = () => {
       hasVideo: false
     }
   ];
+
+  const handleOpenStory = (title) => {
+    setSelectedStoryTitle(title);
+    setIsOverlayOpen(true);
+  };
 
   const headerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -80,7 +89,10 @@ const SuccessStories = () => {
                 {/* Optional Play Button for Video Stories */}
                 {story.hasVideo && (
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="w-20 h-20 rounded-full bg-[#050c18]/80 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:bg-[#9ce3ec] group-hover:text-slate-950 group-hover:scale-110 transition-all duration-300 shadow-[0_0_30px_rgba(34,211,238,0.3)] pointer-events-auto cursor-pointer">
+                    <div 
+                      onClick={() => handleOpenStory(story.title)}
+                      className="w-20 h-20 rounded-full bg-[#050c18]/80 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:bg-[#9ce3ec] group-hover:text-slate-950 group-hover:scale-110 transition-all duration-300 shadow-[0_0_30px_rgba(34,211,238,0.3)] pointer-events-auto cursor-pointer"
+                    >
                       <FiPlayCircle size={40} className="ml-1" />
                     </div>
                   </div>
@@ -109,7 +121,10 @@ const SuccessStories = () => {
                   <p className="text-slate-300 text-base font-normal leading-relaxed mb-8">
                     {story.description}
                   </p>
-                  <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-200 transition-colors font-semibold tracking-wide group cursor-pointer">
+                  <button 
+                    onClick={() => handleOpenStory(story.title)}
+                    className="flex items-center gap-2 text-cyan-400 hover:text-cyan-200 transition-colors font-semibold tracking-wide group cursor-pointer"
+                  >
                     Read Full Report
                     <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -120,6 +135,13 @@ const SuccessStories = () => {
           );
         })}
       </div>
+
+      {/* Full-Screen Story Overlay */}
+      <StoryOverlay 
+        isOpen={isOverlayOpen} 
+        onClose={() => setIsOverlayOpen(false)} 
+        title={selectedStoryTitle}
+      />
 
     </section>
   );
