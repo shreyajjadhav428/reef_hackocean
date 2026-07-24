@@ -9,8 +9,7 @@ import Layout from "../components/layout/Layout";
 import Home from "../pages/Home";
 import Learn from "../pages/Learn";
 import Volunteer from "../pages/Volunteer";
-// import Impact from "../pages/Impact";
-// import Gallery from "../pages/Gallery";
+import Impact from "../pages/Impact";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 
@@ -22,8 +21,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
         <Route path="/learn" element={<Learn />} />
           <Route path="/volunteer" element={<Volunteer />} />
-        {/*  <Route path="/impact" element={<Impact />} />
-          <Route path="/gallery" element={<Gallery />} /> */}
+          <Route path="/impact" element={<Impact />} />
           <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<Contact />} />
         </Route>

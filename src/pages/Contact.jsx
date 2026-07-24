@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import TurtleContactImg from '../assets/images/Turtle_contact.png';
 import { 
   FiMail, 
   FiPhone, 
@@ -85,7 +86,7 @@ const Contact = () => {
             className="lg:w-1/2 lg:absolute lg:right-0 lg:-top-10 z-0 opacity-80 mix-blend-screen pointer-events-none mt-8 lg:mt-0"
           >
             <img 
-              src="/turtle.png" 
+              src={TurtleContactImg} 
               alt="Swimming Sea Turtle" 
               className="w-full max-w-lg ml-auto object-contain drop-shadow-[0_0_30px_rgba(34,211,238,0.2)]"
             />
