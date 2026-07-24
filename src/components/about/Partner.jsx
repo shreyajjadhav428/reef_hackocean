@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FiGlobe, FiSun, FiWind, FiCloudDrizzle } from 'react-icons/fi';
 

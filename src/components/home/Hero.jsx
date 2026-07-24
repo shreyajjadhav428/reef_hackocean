@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Waves, Users, Search, Leaf, Fish } from "lucide-react";
+import { ArrowRight, Waves, Users, Search, Fish } from "lucide-react";
 import Navbar from "../layout/Navbar";
 
 // Custom SVG Icons for Coral Reefs & Plastic Pollution to match image exactly
@@ -183,4 +183,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero;

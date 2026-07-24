@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 

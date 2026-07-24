@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FiAnchor, FiDroplet, FiLifeBuoy, FiGlobe } from 'react-icons/fi';
 
