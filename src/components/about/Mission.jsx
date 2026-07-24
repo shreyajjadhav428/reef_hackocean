@@ -59,35 +59,35 @@ const Mission = () => {
       >
         {/* Hero Section */}
         <motion.div variants={fadeUpVariants} className="text-center max-w-4xl mx-auto mb-20">
-          <h3 className="text-[#48CAE4] uppercase tracking-[0.3em] text-xs font-semibold mb-6">About Us</h3>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-[#CAF0F8]">
+          <h3 className="text-cyan-400 uppercase tracking-[0.3em] text-xs font-semibold mb-6">About Us</h3>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight">
             Our Mission Begins <br />
-            <span className="font-medium text-white">Beneath the Waves.</span>
+            <span className="font-light text-slate-300">Beneath the Waves.</span>
           </h1>
         </motion.div>
 
         {/* Mission Statement */}
         <motion.div 
           variants={fadeUpVariants} 
-          className="bg-[#023E8A]/30 border border-[#0077B6]/20 rounded-2xl p-10 md:p-16 backdrop-blur-md shadow-2xl max-w-5xl mx-auto mb-24 relative overflow-hidden"
+          className="bg-[#050c18] border border-slate-800/80 rounded-3xl p-10 md:p-16 shadow-2xl max-w-5xl mx-auto mb-24 relative overflow-hidden"
         >
           {/* Decorative glass reflection */}
           <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
           
-          <h2 className="text-2xl font-semibold text-[#CAF0F8] mb-6 flex items-center justify-center gap-3">
-            <span className="w-8 h-[1px] bg-[#48CAE4]"></span>
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center justify-center gap-3">
+            <span className="w-8 h-[1px] bg-cyan-400"></span>
             Mission
-            <span className="w-8 h-[1px] bg-[#48CAE4]"></span>
+            <span className="w-8 h-[1px] bg-cyan-400"></span>
           </h2>
-          <p className="text-[#90E0EF] text-xl md:text-2xl leading-relaxed font-light text-center">
+          <p className="text-slate-300 text-xl md:text-2xl leading-relaxed font-normal text-center">
             To inspire people everywhere to discover, understand, and protect coral reef ecosystems through education, storytelling, and collective action.
           </p>
         </motion.div>
 
         {/* Values Section */}
         <motion.div variants={fadeUpVariants} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#CAF0F8] mb-4">Our Core Values</h2>
-          <div className="w-16 h-[2px] bg-[#48CAE4] mx-auto opacity-50"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Core Values</h2>
+          <div className="w-16 h-[2px] bg-cyan-400 mx-auto opacity-60"></div>
         </motion.div>
 
         {/* Values Grid */}
@@ -96,13 +96,13 @@ const Mission = () => {
             <motion.div 
               key={index}
               variants={fadeUpVariants}
-              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-[#03045E]/50 border border-[#0077B6]/30 rounded-xl p-8 hover:bg-[#023E8A]/50 transition-colors duration-500 group"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-[#060e1b]/80 border border-slate-800/80 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-[#071426] transition-all duration-300 group"
             >
-              <div className="w-14 h-14 rounded-full bg-[#023E8A] border border-[#0077B6]/50 flex items-center justify-center text-[#48CAE4] mb-6 group-hover:scale-110 transition-transform duration-500 ease-out">
+              <div className="w-14 h-14 rounded-full bg-[#071324] border border-slate-800 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:border-cyan-500/50 transition-all duration-300">
                 {value.icon}
               </div>
-              <h3 className="text-xl font-medium text-[#CAF0F8] mb-3">{value.title}</h3>
-              <p className="text-[#90E0EF]/80 text-sm font-light leading-relaxed">
+              <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+              <p className="text-slate-400 text-sm font-normal leading-relaxed">
                 {value.description}
               </p>
             </motion.div>

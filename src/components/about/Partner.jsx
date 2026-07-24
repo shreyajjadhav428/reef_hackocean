@@ -30,7 +30,7 @@ const Partner = () => {
         viewport={{ once: true, margin: "-50px" }}
         className="text-center"
       >
-        <motion.h2 variants={itemVariants} className="text-[#48CAE4] uppercase tracking-[0.3em] text-xs font-semibold mb-8">
+        <motion.h2 variants={itemVariants} className="text-cyan-400 uppercase tracking-[0.3em] text-xs font-semibold mb-8">
           Our Global Partners
         </motion.h2>
 
@@ -42,7 +42,7 @@ const Partner = () => {
             <motion.div 
               key={index}
               variants={itemVariants}
-              className="flex flex-col items-center justify-center text-[#90E0EF]/50 hover:text-[#CAF0F8] transition-colors duration-300 group cursor-pointer"
+              className="flex flex-col items-center justify-center text-slate-500 hover:text-cyan-300 transition-colors duration-300 group cursor-pointer"
             >
               <div className="mb-3 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
                 {partner.icon}
