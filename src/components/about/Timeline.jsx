@@ -7,25 +7,29 @@ const Timeline = () => {
       year: "2018",
       title: "The First Dive",
       description: "REEF was founded by a small group of marine biologists and ocean advocates who saw the urgent need to protect degrading local coral ecosystems.",
-      icon: <FiAnchor size={20} />
+      icon: <FiAnchor size={20} />,
+      imageSrc: "/images/diver_dark_water.png"
     },
     {
       year: "2020",
       title: "Coral Restoration Initiative",
       description: "Launched our first major coral nursery, successfully fragmenting and replanting over 10,000 heat-resilient corals back into the ocean.",
-      icon: <FiDroplet size={20} />
+      icon: <FiDroplet size={20} />,
+      imageSrc: "/images/corals.jpg"
     },
     {
       year: "2023",
       title: "Global Ocean Alliance",
       description: "Expanded our reach internationally, partnering with local communities and global NGOs to establish marine protected areas.",
-      icon: <FiLifeBuoy size={20} />
+      icon: <FiLifeBuoy size={20} />,
+      imageSrc: "/images/action_ocean_bg.png"
     },
     {
       year: "2026",
       title: "A Bluer Future",
       description: "Leveraging cutting-edge storytelling and interactive digital experiences to educate millions and drive real-world conservation action.",
-      icon: <FiGlobe size={20} />
+      icon: <FiGlobe size={20} />,
+      imageSrc: "/images/surface ocean.jpg"
     }
   ];
 
@@ -73,8 +77,17 @@ const Timeline = () => {
                 viewport={{ once: true, margin: "-100px" }}
                 className={`flex flex-col md:flex-row items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
               >
-                {/* Empty space for alternating layout on desktop */}
-                <div className="hidden md:block md:w-1/2"></div>
+                {/* Image Container for alternating layout on desktop */}
+                <div className={`hidden md:block md:w-1/2 ${isEven ? 'pl-16' : 'pr-16'}`}>
+                  <div className="w-full h-48 rounded-2xl overflow-hidden shadow-2xl relative group border border-slate-800/80">
+                    <img 
+                      src={item.imageSrc} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                    />
+                    <div className="absolute inset-0 bg-[#050c18]/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                </div>
                 
                 {/* Center Node Icon */}
                 <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#050c18] border-2 border-cyan-400 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.4)] z-20">
