@@ -111,27 +111,6 @@ const Hero = () => {
 
           </div>
 
-          {/* Scroll Indicator ("Surface Info v") */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.8 }}
-            className="relative z-10 flex flex-col items-center justify-center mt-12 mb-4"
-          >
-            <button
-              onClick={scrollToDive}
-              className="group flex flex-col items-center gap-1.5 text-slate-300 hover:text-cyan-300 transition duration-200 cursor-pointer"
-            >
-              <span className="text-xs font-semibold tracking-widest uppercase text-cyan-200/80 group-hover:text-cyan-300">
-                Surface Info
-              </span>
-              <ChevronDown
-                size={20}
-                className="animate-bounce text-cyan-400 group-hover:translate-y-1 transition-transform"
-              />
-            </button>
-          </motion.div>
-
         </div>
       </div>
     </section>

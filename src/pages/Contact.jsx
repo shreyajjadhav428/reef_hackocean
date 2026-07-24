@@ -80,16 +80,19 @@ const Contact = () => {
             </p>
           </motion.div>
           
-          {/* Turtle Image Placeholder (Positioned absolutely on desktop for overlap) */}
+          {/* Swimming Sea Turtle Photo */}
           <motion.div 
             variants={itemVariants} 
-            className="lg:w-1/2 lg:absolute lg:right-0 lg:-top-10 z-0 opacity-80 mix-blend-screen pointer-events-none mt-8 lg:mt-0"
+            className="lg:w-7/12 lg:absolute lg:right-0 lg:-top-[20px] lg:translate-x-[40px] z-0 pointer-events-none mt-8 lg:mt-0 flex justify-start"
           >
-            <img 
-              src={TurtleContactImg} 
-              alt="Swimming Sea Turtle" 
-              className="w-full max-w-lg ml-auto object-contain drop-shadow-[0_0_30px_rgba(34,211,238,0.2)]"
-            />
+            <div className="relative rounded-3xl overflow-hidden border border-cyan-500/30 shadow-[0_0_40px_rgba(34,211,238,0.25)] max-w-lg w-full">
+              <img 
+                src={TurtleContactImg} 
+                alt="Swimming Sea Turtle" 
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050c18] via-transparent to-transparent opacity-60" />
+            </div>
           </motion.div>
         </div>
 
