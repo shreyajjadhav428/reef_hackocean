@@ -64,10 +64,10 @@ const ChapterScroller = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative flex flex-col items-start h-full py-12 sm:py-20 px-2.5 sm:px-3.5 lg:px-4 rounded-l-2xl backdrop-blur-md bg-slate-950/70 border-l border-amber-400/25 shadow-[0_0_30px_rgba(0,0,0,0.85)] max-w-[120px] sm:max-w-[140px]"
+            className="relative flex flex-col items-start h-full py-12 sm:py-20 px-3 sm:px-4 lg:px-5 rounded-l-2xl backdrop-blur-md bg-slate-950/70 border-l border-amber-400/25 shadow-[0_0_30px_rgba(0,0,0,0.85)] w-[150px] sm:w-[170px] min-w-[150px] sm:min-w-[170px]"
           >
             {/* Full Screen Height Vertical Connecting Line */}
-            <div className="w-[2px] bg-gradient-to-b from-amber-400/20 via-amber-400/70 to-amber-400/20 absolute top-10 bottom-10 left-4 sm:left-5 lg:left-6 -translate-x-1/2 z-0" />
+            <div className="w-[2px] bg-gradient-to-b from-amber-400/20 via-amber-400/70 to-amber-400/20 absolute top-10 bottom-10 left-[22px] sm:left-[26px] lg:left-[30px] -translate-x-1/2 z-0" />
 
             <div className="flex-1 flex flex-col justify-evenly relative z-10 w-full">
               {chapters.map((ch) => {
