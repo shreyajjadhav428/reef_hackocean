@@ -167,7 +167,9 @@ const CoralZone = () => {
           alt="Coral Reef Underwater"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#040810]/90 via-[#040810]/40 to-[#040810]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040810] via-[#040810]/30 to-[#040810]" />
+        <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#040810]/80 to-transparent z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#040810]/80 to-transparent z-10" />
       </div>
 
       {/* AMBIENT LIGHTING GLOWS */}

@@ -53,7 +53,7 @@ const Dive = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 1 }}
-        className="w-full bg-[#040810] relative min-h-[480px] sm:min-h-[560px] flex items-center justify-between p-8 sm:p-16 lg:p-24 overflow-hidden"
+        className="w-full bg-[#040810] relative min-h-[300px] sm:min-h-[360px] flex items-center justify-between py-10 sm:py-14 px-6 sm:px-12 lg:px-16 overflow-hidden"
       >
         {/* Background Video Element */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-80">
@@ -66,9 +66,11 @@ const Dive = () => {
           >
             <source src="/video/a_to_sec_clip_of_water_lik.mp4" type="video/mp4" />
           </video>
-          {/* Subtle overlay gradients for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040810] via-transparent to-[#040810]/40" />
-          <div className="absolute inset-0 bg-[#040810]/15" />
+          {/* Smooth overlay gradients for text readability & seamless section blending */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#040810]/60 via-transparent to-[#040810]/60 z-10" />
+          <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#040810]/80 to-transparent z-10" />
+          <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#040810]/80 to-transparent z-10" />
+          <div className="absolute inset-0 bg-[#040810]/15 z-10" />
         </div>
 
         {/* Subtle Ambient Background Elements matching Volunteer page */}
