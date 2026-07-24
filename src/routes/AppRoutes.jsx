@@ -12,6 +12,7 @@ import Volunteer from "../pages/Volunteer";
 import Impact from "../pages/Impact";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import SupportReef from "../pages/SupportReef";
 
 const AppRoutes = () => {
   return (
@@ -19,11 +20,13 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-        <Route path="/learn" element={<Learn />} />
+          <Route path="/learn" element={<Learn />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<Contact />} />
+          <Route path="/donate" element={<SupportReef />} />
+          <Route path="/support" element={<SupportReef />} />
         </Route>
 
         {/* 404 Page (Temporary) */}
