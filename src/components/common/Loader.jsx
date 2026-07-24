@@ -1,15 +1,27 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Loader = ({ onComplete }) => {
+  const location = useLocation();
+
+  // Check if loader should run: ONLY on Home page ("/") AND ONLY once per session
+  const [shouldRun] = useState(() => {
+    const isHomePage = location.pathname === "/";
+    const alreadyLoaded = sessionStorage.getItem("has_loaded_once") === "true";
+    return isHomePage && !alreadyLoaded;
+  });
+
   const [progress, setProgress] = useState(0);
   const [showLight, setShowLight] = useState(false);
   const [showHeading, setShowHeading] = useState(false);
   const [showSubheading, setShowSubheading] = useState(false);
   const [showProgressBar, setShowProgressBar] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(shouldRun);
 
   useEffect(() => {
+    if (!shouldRun) return;
+
     // 1. Center Bright Light expands in darkness (0.4s)
     const timerLight = setTimeout(() => {
       setShowLight(true);
@@ -36,11 +48,11 @@ const Loader = ({ onComplete }) => {
       clearTimeout(timerSub);
       clearTimeout(timerBar);
     };
-  }, []);
+  }, [shouldRun]);
 
   // Smooth 2.4s progress bar filling
   useEffect(() => {
-    if (!showProgressBar) return;
+    if (!shouldRun || !showProgressBar) return;
 
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -53,18 +65,23 @@ const Loader = ({ onComplete }) => {
     }, 22); // 100% in ~2.2s after progress bar appears
 
     return () => clearInterval(interval);
-  }, [showProgressBar]);
+  }, [shouldRun, showProgressBar]);
 
   // Complete and fade out after 100% progress
   useEffect(() => {
+    if (!shouldRun) return;
+
     if (progress === 100) {
+      sessionStorage.setItem("has_loaded_once", "true");
       const exitTimer = setTimeout(() => {
         setIsVisible(false);
         if (onComplete) onComplete();
       }, 500);
       return () => clearTimeout(exitTimer);
     }
-  }, [progress, onComplete]);
+  }, [progress, onComplete, shouldRun]);
+
+  if (!shouldRun || !isVisible) return null;
 
   return (
     <AnimatePresence>
@@ -167,3 +184,4 @@ const Loader = ({ onComplete }) => {
 };
 
 export default Loader;
+

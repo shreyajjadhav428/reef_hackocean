@@ -38,19 +38,19 @@ const InteractiveFish = () => {
   // Section Tracking & Visibility
   useEffect(() => {
     const handleScroll = () => {
-      const diveEl = document.getElementById("chapter-dive");
-      if (diveEl) {
-        // Appear starting ONLY from Dive section onwards (scroll past Surface Hero section)
-        setIsVisible(window.scrollY >= diveEl.offsetTop - 50);
+      const coralEl = document.getElementById("chapter-coral");
+      if (coralEl) {
+        // Appear ONLY from Coral Reef section onwards (never on Surface or Dive)
+        setIsVisible(window.scrollY >= coralEl.offsetTop - 100);
       } else {
         setIsVisible(false);
       }
 
       const scrollPos = window.scrollY + window.innerHeight * 0.4;
-      const coralEl = document.getElementById("chapter-coral");
       const threatEl = document.getElementById("chapter-threat");
       const hopeEl = document.getElementById("chapter-hope");
       const actionEl = document.getElementById("chapter-action");
+      const diveEl = document.getElementById("chapter-dive");
 
       let detectedSection = "hero";
       if (actionEl && scrollPos >= actionEl.offsetTop) {
@@ -173,6 +173,14 @@ const InteractiveFish = () => {
          lastRandomMoveTime.current = now;
       }
 
+      // Calculate top Y boundary (never swim above the top of Coral Reef)
+      const coralEl = document.getElementById("chapter-coral");
+      let minY = 50;
+      if (coralEl) {
+        const rect = coralEl.getBoundingClientRect();
+        minY = Math.max(50, rect.top + 40);
+      }
+
       // Random Wandering Logic
       if (!isInvestigatingRipple.current && !isFleeing.current) {
         const dx = targetPos.current.x - fishPos.current.x;
@@ -183,7 +191,7 @@ const InteractiveFish = () => {
         if (distToTarget < 100 || now - lastRandomMoveTime.current > 8000) {
            targetPos.current = {
               x: Math.random() * (window.innerWidth - 100) + 50,
-              y: Math.random() * (window.innerHeight - 100) + 50
+              y: Math.max(minY, Math.random() * Math.max(100, window.innerHeight - minY - 100) + minY)
            };
            lastRandomMoveTime.current = now;
         }
@@ -208,7 +216,6 @@ const InteractiveFish = () => {
       }
       
       // Acceleration determines how "sluggish" or smooth the fish feels
-      // Fish slowly build up momentum and slowly lose it
       const acceleration = isFleeing.current ? 0.08 : 0.015;
       
       velocity.current.x += (desiredVx - velocity.current.x) * acceleration;
@@ -216,6 +223,12 @@ const InteractiveFish = () => {
       
       fishPos.current.x += velocity.current.x;
       fishPos.current.y += velocity.current.y;
+
+      // Strict boundary check: do not let fish swim above Coral Reef top line
+      if (fishPos.current.y < minY) {
+         fishPos.current.y = minY;
+         if (velocity.current.y < 0) velocity.current.y = Math.abs(velocity.current.y);
+      }
       
       // Calculate smooth rotation based on VELOCITY, not target position.
       // This makes the fish always face the direction it's actually moving!
@@ -249,7 +262,7 @@ const InteractiveFish = () => {
     return () => cancelAnimationFrame(requestRef.current);
   }, [activeSection]);
 
-  if (!isVisible || activeSection === 'hero') return null;
+  if (!isVisible || activeSection === 'hero' || activeSection === 'dive') return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[45] overflow-hidden">

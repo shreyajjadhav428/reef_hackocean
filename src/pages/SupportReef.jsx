@@ -42,6 +42,16 @@ const SupportReef = () => {
   return (
     <div className="min-h-screen bg-[#040810] text-white pt-28 pb-24 font-serif selection:bg-cyan-500 selection:text-slate-950 relative overflow-hidden select-none">
       
+      {/* VIVID TOP HEADER BACKGROUND IMAGE */}
+      <div className="absolute top-0 inset-x-0 h-[440px] sm:h-[480px] lg:h-[500px] z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/images/coral_reef_bg.png"
+          alt="Support Reef Conservation"
+          className="w-full h-full object-cover object-center opacity-85 brightness-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040810]/50 via-black/20 to-[#040810]" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#040810] to-transparent" />
+      </div>
       {/* Ambient Background Glows */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 fixed">
         <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-cyan-950/30 rounded-full mix-blend-screen filter blur-[150px] opacity-25" />
