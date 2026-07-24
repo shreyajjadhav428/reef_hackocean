@@ -57,7 +57,7 @@ const WorldMap = () => {
 
   return (
     <section className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-12 relative z-10">
-      
+       
       {/* Section Header */}
       <motion.div 
         variants={headerVariants}
