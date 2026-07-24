@@ -97,7 +97,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 25, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.5, ease: "easeOut" }}
-              className="mt-12 sm:mt-14 lg:mt-16"
+              className="mt-6 sm:mt-8"
             >
 
               <button
@@ -113,11 +113,11 @@ const Hero = () => {
 
         </div>
       </div>
+
+      {/* Smooth Bottom Section Blend Overlay */}
+      <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#040810] via-[#040810]/80 to-transparent pointer-events-none z-20" />
     </section>
   );
 };
 
-
 export default Hero;
-
-
