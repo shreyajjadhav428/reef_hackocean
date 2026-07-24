@@ -6,6 +6,7 @@ import RestorationZone from "../components/home/RestorationZone";
 import ExploreMore from "../components/home/ExploreMore";
 import LunaSticky from "../components/home/LunaSticky";
 import ChapterScroller from "../components/home/ChapterScroller";
+import InteractiveFish from "../components/common/InteractiveFish";
 
 const Home = () => {
   return (
@@ -33,6 +34,9 @@ const Home = () => {
 
       {/* Sticky Luna Sea Turtle companion from Dive section onwards */}
       <LunaSticky />
+
+      {/* Global Interactive Fish Companion */}
+      <InteractiveFish />
     </div>
   );
 };

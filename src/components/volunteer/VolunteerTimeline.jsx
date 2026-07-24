@@ -8,25 +8,29 @@ const VolunteerTimeline = () => {
       phase: "Step 01",
       title: "Sign Up",
       description: "Join our global network of ocean advocates. Create your profile and tell us about your skills and passion for marine conservation.",
-      icon: <FiEdit3 size={24} />
+      icon: <FiEdit3 size={24} />,
+      imageSrc: "/images/volunteer_action_bg.png"
     },
     {
       phase: "Step 02",
       title: "Training",
       description: "Complete our immersive online orientation. Learn about local reef ecosystems, safety protocols, and effective restoration techniques.",
-      icon: <FiBookOpen size={24} />
+      icon: <FiBookOpen size={24} />,
+      imageSrc: "/images/volunterring wokring.jpg"
     },
     {
       phase: "Step 03",
       title: "Cleanup & Restoration",
       description: "Dive in. Participate in local beach cleanups, underwater trash removal, or assist in our coral fragmentation nurseries.",
-      icon: <FiTrash2 size={24} />
+      icon: <FiTrash2 size={24} />,
+      imageSrc: "/images/collecting the garbage.jpg"
     },
     {
       phase: "Step 04",
       title: "Ocean Guardian",
       description: "Become a certified REEF Guardian. Lead your own community initiatives and mentor the next wave of volunteers.",
-      icon: <FiShield size={24} />
+      icon: <FiShield size={24} />,
+      imageSrc: "/images/corals.jpg"
     }
   ];
 
@@ -80,8 +84,17 @@ const VolunteerTimeline = () => {
                 viewport={{ once: true, margin: "-100px" }}
                 className={`flex flex-col md:flex-row items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
               >
-                {/* Desktop Spacer */}
-                <div className="hidden md:block md:w-1/2"></div>
+                {/* Image Container for alternating layout on desktop */}
+                <div className={`hidden md:block md:w-1/2 ${isEven ? 'pl-16' : 'pr-16'}`}>
+                  <div className="w-full h-48 rounded-3xl overflow-hidden shadow-2xl relative group border border-slate-800/80">
+                    <img 
+                      src={step.imageSrc} 
+                      alt={step.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                    />
+                    <div className="absolute inset-0 bg-[#050c18]/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                </div>
                 
                 {/* Glowing Node Icon */}
                 <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-[#050c18] border border-cyan-400 flex items-center justify-center text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.3)] z-20">
