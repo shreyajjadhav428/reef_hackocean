@@ -52,9 +52,11 @@ const Dive = () => {
             Dive deeper. <br />
             <span className="text-slate-300 font-normal">Discover the unseen.</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Scroll down or use the chapter navigator on the right to explore our oceans, threats, and restoration efforts.
-          </p>
+          <div className="mt-6 bg-cyan-950/40 border border-cyan-500/30 p-4 rounded-2xl backdrop-blur-md">
+            <p className="text-cyan-50 text-sm sm:text-base leading-relaxed font-medium">
+              💡 <span className="font-bold text-white">Tip:</span> For further progress through the website, you will need to read Luna's story. Click on <span className="font-bold text-cyan-300 px-2 py-0.5 bg-cyan-900/50 rounded-md">Read Next →</span> to unlock scrolling.
+            </p>
+          </div>
         </motion.div>
       </motion.div>
     </section>
