@@ -2,11 +2,11 @@ import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Navbar from "../layout/Navbar";
+import heroBg from "../../assets/video/it_feels_very_unrealistic_lets.mp4";
 
 const headlineLines = [
-  "Every minute,",
-  "a truckload of plastic",
-  "enters our oceans.",
+  "The Ocean Isn't Silent.",
+  "It Needs a Voice."
 ];
 
 const BubbleParticles = () => {
@@ -129,18 +129,23 @@ const Hero = () => {
           
           {/* Beautiful Ocean Background with Scale Entrance */}
           <div className="absolute inset-0 z-0 overflow-hidden">
-            <motion.img
-              src="/hero1.png"
-              alt="Beautiful Ocean Hero"
+            <motion.video
+              autoPlay
+              loop
+              muted
+              playsInline
               initial={{ scale: 1.08, opacity: 0.9 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="w-full h-full object-cover object-center"
-            />
+            >
+              <source src={heroBg} type="video/mp4" />
+            </motion.video>
 
-            {/* Subtle gradient for text contrast while preserving image brightness */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060d19]/80 via-transparent to-black/20" />
+            {/* Darkening overlays for video contrast */}
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060d19]/90 via-transparent to-black/40" />
             
             {/* Fade out light rays / brighten background during dive */}
             <motion.div 
@@ -151,7 +156,7 @@ const Hero = () => {
           </div>
 
           {/* Headline & Dive In Button */}
-          <div className="relative z-20 max-w-2xl my-auto pt-10 sm:pt-16">
+          <div className="relative z-20 max-w-2xl mx-auto my-auto pt-10 sm:pt-16 text-center flex flex-col items-center">
             
             {/* Line-by-Line Staggered Headline Motion */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-white tracking-tight drop-shadow-lg flex flex-col gap-1 sm:gap-2">

@@ -158,8 +158,8 @@ const Loader = ({ onComplete }) => {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col items-center gap-2"
                   >
-                    {/* Progress Bar Container */}
-                    <div className="w-56 sm:w-72 lg:w-80 h-1.5 sm:h-2 bg-slate-900/90 border border-teal-500/40 rounded-full overflow-hidden p-0.5 shadow-[0_0_20px_rgba(45,212,191,0.3)]">
+                    {/* Progress Bar Container (+30px width) */}
+                    <div className="w-[254px] sm:w-[318px] lg:w-[350px] h-1.5 sm:h-2 bg-slate-900/90 border border-teal-500/40 rounded-full overflow-hidden p-0.5 shadow-[0_0_20px_rgba(45,212,191,0.3)]">
                       <motion.div
                         className="h-full bg-gradient-to-r from-teal-400 via-cyan-300 to-blue-400 rounded-full shadow-[0_0_14px_#22d3ee]"
                         style={{ width: `${progress}%` }}
